@@ -188,10 +188,16 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="genderOptionsButton" destination="dtg-tS-AVo" id="vdu-o1-jDq"/>
+                        <outlet property="goalOptionsButton" destination="efH-1b-mHg" id="rof-ry-dyA"/>
+                        <outlet property="nameTextField" destination="Slc-sh-WKd" id="MN4-1J-ZEy"/>
+                        <outlet property="relationshipOptionsButton" destination="thu-Gw-Ljs" id="iFw-ie-4qy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bwi-wb-j0Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="984" y="362"/>
+            <point key="canvasLocation" x="984" y="356"/>
         </scene>
     </scenes>
 </document>

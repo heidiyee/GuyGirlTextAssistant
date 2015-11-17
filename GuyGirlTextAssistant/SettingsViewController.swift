@@ -8,28 +8,88 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+typealias SettingsViewControllerCompletion = (success: Bool) -> ()
 
+class SettingsViewController: UIViewController {
+    
+    var completion: SettingsViewControllerCompletion?
+    
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var genderOptionsButton: UISegmentedControl!
+    @IBOutlet weak var relationshipOptionsButton: UISegmentedControl!
+    @IBOutlet weak var goalOptionsButton: UISegmentedControl!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        //setupView()
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
-    */
+    
+    @IBAction func dismissButtonSelected(sender: AnyObject) {
+        if let completion = self.completion {
+            completion(success: true)
+        }
+    }
 
+    @IBAction func saveButton(sender: AnyObject) {
+        //saves settings
+        print("save")
+    }
+    
+
+    @IBAction func genderOptions(sender: AnyObject) {
+        if(genderOptionsButton.selectedSegmentIndex == 0)
+        {
+            print("First Segment Selected")
+        }
+        else if (genderOptionsButton.selectedSegmentIndex == 1)
+        {
+            print("Second Segment Selected")
+        }
+
+    }
+
+    @IBAction func relationshipOptions(sender: AnyObject) {
+        
+        if(relationshipOptionsButton.selectedSegmentIndex == 0)
+        {
+            print("First Segment Selected")
+        }
+        else if (relationshipOptionsButton.selectedSegmentIndex == 1)
+        {
+            print("Second Segment Selected")
+        }
+        else if (relationshipOptionsButton.selectedSegmentIndex == 2)
+        {
+            print("Third Segment Selected")
+        }
+    }
+    
+    @IBAction func goalOptions(sender: AnyObject) {
+        
+        if(goalOptionsButton.selectedSegmentIndex == 0)
+        {
+            print("First Segment Selected")
+        }
+        else if (goalOptionsButton.selectedSegmentIndex == 1)
+        {
+            print("Second Segment Selected")
+        }
+        else if (goalOptionsButton.selectedSegmentIndex == 2)
+        {
+            print("Third Segment Selected")
+        }
+    }
+    
+    @IBAction func createNew(sender: AnyObject) {
+        print("add new person")
+    }
+    
+    
+    
 }
