@@ -8,12 +8,10 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate, UIViewControllerTransitioningDelegate {
+class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIViewControllerTransitioningDelegate {
 
-    var persons = ["Jane", "Sally", "Bob", "Suzie", "Sandra"]
     var answers = ["Ayylmao", "Lorem ipsum dolor sit amet", "Sed sit amet", "Ipsum mauris"]
     
-    @IBOutlet weak var personsCollectionView: UICollectionView!
     @IBOutlet weak var phraseTextField: UITextField!
     @IBOutlet weak var phraseLabel: UILabel!
     @IBOutlet weak var answersTableView: UITableView!
@@ -26,10 +24,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.personsCollectionView.dataSource = self
-        self.personsCollectionView.delegate = self
-        self.personsCollectionView.backgroundColor = UIColor.clearColor()
-        
         self.answersTableView.dataSource = self
         self.answersTableView.delegate = self
         self.answersTableView.layer.cornerRadius = 10
@@ -40,18 +34,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
         
-//        let lightBlurView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Light))
-//        lightBlurView.frame = self.phraseElementsContainer.bounds
-//        self.phraseElementsContainer.insertSubview(lightBlurView, atIndex: 0)
-        self.phraseElementsContainer.backgroundColor = UIColor.whiteColor()
-        
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: self.view.frame.width, height: 49)
-        flowLayout.minimumInteritemSpacing = 0.0
-        flowLayout.minimumLineSpacing = 0.0
-        flowLayout.scrollDirection = .Horizontal
-        self.personsCollectionView.collectionViewLayout = flowLayout
-        self.personsCollectionView.showsHorizontalScrollIndicator = false
+        let lightBlurView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Light))
+        lightBlurView.frame = self.phraseElementsContainer.bounds
+        self.phraseElementsContainer.insertSubview(lightBlurView, atIndex: 0)
+//        self.phraseElementsContainer.backgroundColor = UIColor.whiteColor()
     }
     
     override func didReceiveMemoryWarning() {
@@ -71,19 +57,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return CustomTransition(duration: 2.0)
-    }
-    
-    // MARK: Collection view data source
-    
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return persons.count
-    }
-    
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = self.personsCollectionView.dequeueReusableCellWithReuseIdentifier(PersonCollectionViewCell.identifier(), forIndexPath: indexPath) as! PersonCollectionViewCell
-        cell.nameTextLabel.text = persons[indexPath.row]
-        cell.backgroundColor = UIColor.clearColor()
-        return cell
     }
     
     // MARK: Text field actions
