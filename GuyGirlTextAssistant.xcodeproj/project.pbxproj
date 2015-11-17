@@ -149,6 +149,7 @@
 				B78EA15D1BFA57F100BDC4D6 /* MainViewController.swift in Sources */,
 				B78EA15B1BFA57F100BDC4D6 /* AppDelegate.swift in Sources */,
 				B7E4CB041BFA886E00A3E9CA /* SettingsViewController.swift in Sources */,
+				B7E4CB061BFA8FA700A3E9CA /* CustomTransition.swift in Sources */,
 				96C7913C1BFBBE0200C119F3 /* AnswerTableViewCell.swift in Sources */,
 				965433511BFA8E8B00F1E04F /* PersonCollectionViewCell.swift in Sources */,
 			);
