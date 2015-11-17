@@ -13,6 +13,7 @@
 		B78EA1621BFA57F100BDC4D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B78EA1611BFA57F100BDC4D6 /* Assets.xcassets */; };
 		B78EA1651BFA57F100BDC4D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B78EA1631BFA57F100BDC4D6 /* LaunchScreen.storyboard */; };
 		B7E4CB041BFA886E00A3E9CA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E4CB031BFA886E00A3E9CA /* SettingsViewController.swift */; };
+		B7E4CB061BFA8FA700A3E9CA /* CustomTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E4CB051BFA8FA700A3E9CA /* CustomTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B78EA1641BFA57F100BDC4D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B78EA1661BFA57F100BDC4D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7E4CB031BFA886E00A3E9CA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B7E4CB051BFA8FA700A3E9CA /* CustomTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				B78EA15A1BFA57F100BDC4D6 /* AppDelegate.swift */,
 				B7E4CB031BFA886E00A3E9CA /* SettingsViewController.swift */,
+				B7E4CB051BFA8FA700A3E9CA /* CustomTransition.swift */,
 				B78EA15C1BFA57F100BDC4D6 /* MainViewController.swift */,
 				B78EA15E1BFA57F100BDC4D6 /* Main.storyboard */,
 				B78EA1611BFA57F100BDC4D6 /* Assets.xcassets */,
@@ -140,6 +143,7 @@
 				B78EA15D1BFA57F100BDC4D6 /* MainViewController.swift in Sources */,
 				B78EA15B1BFA57F100BDC4D6 /* AppDelegate.swift in Sources */,
 				B7E4CB041BFA886E00A3E9CA /* SettingsViewController.swift in Sources */,
+				B7E4CB061BFA8FA700A3E9CA /* CustomTransition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
