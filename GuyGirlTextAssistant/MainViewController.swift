@@ -8,15 +8,15 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate {
 
     var persons = ["Jane", "Sally", "Bob", "Suzie", "Sandra"]
     var answers = ["Ayylmao", "Lorem ipsum dolor sit amet", "Sed sit amet", "Ipsum mauris"]
     
     @IBOutlet weak var personsCollectionView: UICollectionView!
-    @IBOutlet weak var answersView: UIView!
     @IBOutlet weak var phraseTextField: UITextField!
     @IBOutlet weak var phraseLabel: UILabel!
+    @IBOutlet weak var answersTableView: UITableView!
     
     class func identifier() -> String {
         return "MainViewController"
@@ -24,10 +24,13 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
         self.personsCollectionView.dataSource = self
         self.personsCollectionView.delegate = self
         self.personsCollectionView.backgroundColor = UIColor.whiteColor()
+        
+        self.answersTableView.dataSource = self
+        self.answersTableView.delegate = self
         
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.itemSize = CGSize(width: self.view.frame.width, height: 49)
@@ -52,11 +55,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = self.personsCollectionView.dequeueReusableCellWithReuseIdentifier(PersonCollectionViewCell.identifier(), forIndexPath: indexPath) as! PersonCollectionViewCell
         cell.nameTextLabel.text = persons[indexPath.row]
-        cell.backgroundColor = UIColor.redColor()
+        cell.backgroundColor = UIColor.lightGrayColor()
         return cell
     }
-    
-    // MARK: Collection view delegate 
     
     // MARK: Text field actions
 
@@ -68,6 +69,20 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     @IBAction func textFieldDidEndOnExit(textField: UITextField) {
         self.phraseTextField.text = nil
+    }
+    
+    // MARK: Table view data source
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return answers.count
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = self.answersTableView.dequeueReusableCellWithIdentifier(AnswerTableViewCell.identifier()) as! AnswerTableViewCell
+        cell.answerTextLabel.text = answers[indexPath.row]
+        cell.textParentView.layer.cornerRadius = 16.0
+        cell.textParentView.backgroundColor = UIColor.whiteColor()
+        return cell
     }
 }
 

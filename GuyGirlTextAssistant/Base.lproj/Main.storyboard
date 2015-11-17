@@ -83,15 +83,57 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="e6Y-Zf-OLq">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnswerTableViewCell" id="e6Y-Zf-OLq" customClass="AnswerTableViewCell" customModule="GuyGirlTextAssistant" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e6Y-Zf-OLq" id="3lN-Q1-4NJ">
                                             <rect key="frame" x="0.0" y="0.0" width="560" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N7q-1Q-EQD">
+                                                    <rect key="frame" x="268" y="3" width="24.5" height="35.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wE-EN-PPb">
+                                                            <rect key="frame" x="8" y="8" width="8.5" height="21"/>
+                                                            <animations/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="2wE-EN-PPb" secondAttribute="trailing" constant="8" id="Blp-Y7-r9B"/>
+                                                        <constraint firstAttribute="bottom" secondItem="2wE-EN-PPb" secondAttribute="bottom" constant="6.5" id="L41-2L-lJK"/>
+                                                        <constraint firstItem="2wE-EN-PPb" firstAttribute="leading" secondItem="N7q-1Q-EQD" secondAttribute="leading" constant="8" id="Whd-CS-sAr"/>
+                                                        <constraint firstItem="2wE-EN-PPb" firstAttribute="top" secondItem="N7q-1Q-EQD" secondAttribute="top" constant="8" id="su2-hx-pln"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
                                             <animations/>
+                                            <constraints>
+                                                <constraint firstItem="N7q-1Q-EQD" firstAttribute="top" secondItem="3lN-Q1-4NJ" secondAttribute="topMargin" constant="-8" id="E3j-5k-rZz"/>
+                                                <constraint firstAttribute="bottom" secondItem="N7q-1Q-EQD" secondAttribute="bottom" constant="8" id="Eav-Fc-dTm"/>
+                                                <constraint firstItem="N7q-1Q-EQD" firstAttribute="centerX" secondItem="3lN-Q1-4NJ" secondAttribute="centerX" id="Q73-uw-XOI"/>
+                                                <constraint firstItem="N7q-1Q-EQD" firstAttribute="centerX" secondItem="3lN-Q1-4NJ" secondAttribute="centerX" id="Ssu-1K-KPL"/>
+                                                <constraint firstItem="N7q-1Q-EQD" firstAttribute="centerY" secondItem="3lN-Q1-4NJ" secondAttribute="centerY" id="U6j-tl-a3u"/>
+                                                <constraint firstItem="N7q-1Q-EQD" firstAttribute="width" secondItem="3lN-Q1-4NJ" secondAttribute="width" multiplier="0.6" id="kXc-NM-xJk"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="E3j-5k-rZz"/>
+                                                    <exclude reference="Eav-Fc-dTm"/>
+                                                    <exclude reference="Q73-uw-XOI"/>
+                                                    <exclude reference="kXc-NM-xJk"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <outlet property="answerTextLabel" destination="2wE-EN-PPb" id="jdB-bb-Ebg"/>
+                                            <outlet property="textParentView" destination="N7q-1Q-EQD" id="SfT-nP-sAa"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -122,6 +164,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="answersTableView" destination="itn-yx-k1c" id="JCA-G4-x0s"/>
                         <outlet property="personsCollectionView" destination="Y3I-Ze-A8g" id="Gfq-ES-oYV"/>
                         <outlet property="phraseLabel" destination="Y75-65-Y9B" id="i8g-Gl-qQt"/>
                         <outlet property="phraseTextField" destination="Kye-MM-IyF" id="3gK-Wh-jMN"/>
