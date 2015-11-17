@@ -16,6 +16,9 @@
 		B78EA1651BFA57F100BDC4D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B78EA1631BFA57F100BDC4D6 /* LaunchScreen.storyboard */; };
 		B7E4CB041BFA886E00A3E9CA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E4CB031BFA886E00A3E9CA /* SettingsViewController.swift */; };
 		B7E4CB061BFA8FA700A3E9CA /* CustomTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E4CB051BFA8FA700A3E9CA /* CustomTransition.swift */; };
+		BFE471B01BFBEC58004C98A5 /* AnswerRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE471AF1BFBEC58004C98A5 /* AnswerRetriever.swift */; settings = {ASSET_TAGS = (); }; };
+		BFE471B21BFBEC63004C98A5 /* KeyWordFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE471B11BFBEC63004C98A5 /* KeyWordFinder.swift */; settings = {ASSET_TAGS = (); }; };
+		BFE471B41BFBEC6F004C98A5 /* Patterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE471B31BFBEC6F004C98A5 /* Patterns.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		B78EA1661BFA57F100BDC4D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7E4CB031BFA886E00A3E9CA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B7E4CB051BFA8FA700A3E9CA /* CustomTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTransition.swift; sourceTree = "<group>"; };
+		BFE471AF1BFBEC58004C98A5 /* AnswerRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerRetriever.swift; sourceTree = "<group>"; };
+		BFE471B11BFBEC63004C98A5 /* KeyWordFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyWordFinder.swift; sourceTree = "<group>"; };
+		BFE471B31BFBEC6F004C98A5 /* Patterns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Patterns.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,7 @@
 		B78EA1591BFA57F100BDC4D6 /* GuyGirlTextAssistant */ = {
 			isa = PBXGroup;
 			children = (
+				BFE471AE1BFBEC37004C98A5 /* AnswerGeneration */,
 				B78EA15A1BFA57F100BDC4D6 /* AppDelegate.swift */,
 				B7E4CB031BFA886E00A3E9CA /* SettingsViewController.swift */,
 				B7E4CB051BFA8FA700A3E9CA /* CustomTransition.swift */,
@@ -74,6 +81,16 @@
 				B78EA1661BFA57F100BDC4D6 /* Info.plist */,
 			);
 			path = GuyGirlTextAssistant;
+			sourceTree = "<group>";
+		};
+		BFE471AE1BFBEC37004C98A5 /* AnswerGeneration */ = {
+			isa = PBXGroup;
+			children = (
+				BFE471B31BFBEC6F004C98A5 /* Patterns.swift */,
+				BFE471B11BFBEC63004C98A5 /* KeyWordFinder.swift */,
+				BFE471AF1BFBEC58004C98A5 /* AnswerRetriever.swift */,
+			);
+			name = AnswerGeneration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFE471B01BFBEC58004C98A5 /* AnswerRetriever.swift in Sources */,
 				B78EA15D1BFA57F100BDC4D6 /* MainViewController.swift in Sources */,
 				B78EA15B1BFA57F100BDC4D6 /* AppDelegate.swift in Sources */,
 				B7E4CB041BFA886E00A3E9CA /* SettingsViewController.swift in Sources */,
@@ -265,6 +283,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GuyGirlTextAssistant/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = guygirl.GuyGirlTextAssistant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -276,6 +295,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GuyGirlTextAssistant/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = guygirl.GuyGirlTextAssistant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
