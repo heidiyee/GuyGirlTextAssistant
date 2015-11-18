@@ -13,6 +13,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     var answers = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Donec a diam lectus.", "Sed sit amet ipsum mauris.", "Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit."]// [String]()
     
+    var chatbotAnswer:Response? {
+        didSet {
+            answersTableView.reloadData()
+        }
+    }
+    
     let cornerRadius: CGFloat = 18
     
     @IBOutlet weak var phraseTextField: UITextField!
@@ -37,6 +43,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         gradientLayer.colors = [UIColor(white: 0.9, alpha: 1.0).CGColor, UIColor.whiteColor().CGColor]
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
+        
+
         
 //        self.phraseElementsContainer.backgroundColor = UIColor.clearColor()
         
@@ -83,6 +91,14 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBAction func textFieldDidEndOnExit(textField: UITextField) {
         if let phraseText = textField.text {
+            //This function needs to get the text message from user as parameter
+            ChatbotAPIService.update(phraseText) { (response) -> () in
+                self.chatbotAnswer = response
+                if let chatbotAnswer = self.chatbotAnswer?.message {
+                    self.answers.append((chatbotAnswer))
+                    print("The chat bot message is:\(self.chatbotAnswer!.message)")
+                }
+            }
 //            let matchesInTextMessage = KeyWordFinder.searchForAllPatterns(phraseText)
 //            self.answers = AnswerRetriever.answersforText(matchesInTextMessage)
 //            self.answersTableView.reloadData()
