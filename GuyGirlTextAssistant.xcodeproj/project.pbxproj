@@ -188,12 +188,11 @@
 			isa = PBXGroup;
 			children = (
 				B78EA1581BFA57F100BDC4D6 /* Products */,
-				BFE471AE1BFBEC37004C98A5 /* AnswerGeneration */,
+				BF6C4B081BFD3FFA00A9BAC6 /* ChatbotAPI */,
+				BFE471AE1BFBEC37004C98A5 /* LocalAnswerGeneration */,
 				B78EA15A1BFA57F100BDC4D6 /* AppDelegate.swift */,
+				BF6C4B091BFD402300A9BAC6 /* Model */,
 				B7E4CB441BFD24A600A3E9CA /* ParseService.swift */,
-				BF6C4B021BFD36D000A9BAC6 /* Response.swift */,
-				BF6C4B031BFD36D000A9BAC6 /* ChatbotAPIService.swift */,
-				BF6C4B041BFD36D000A9BAC6 /* ApiConstants.swift */,
 				B7E4CB421BFD244B00A3E9CA /* Constants.swift */,
 				B7E4CB031BFA886E00A3E9CA /* SettingsViewController.swift */,
 				B7E4CB051BFA8FA700A3E9CA /* CustomTransition.swift */,
@@ -234,14 +233,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BFE471AE1BFBEC37004C98A5 /* AnswerGeneration */ = {
+		BF6C4B081BFD3FFA00A9BAC6 /* ChatbotAPI */ = {
+			isa = PBXGroup;
+			children = (
+				BF6C4B041BFD36D000A9BAC6 /* ApiConstants.swift */,
+				BF6C4B031BFD36D000A9BAC6 /* ChatbotAPIService.swift */,
+			);
+			name = ChatbotAPI;
+			sourceTree = "<group>";
+		};
+		BF6C4B091BFD402300A9BAC6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF6C4B021BFD36D000A9BAC6 /* Response.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		BFE471AE1BFBEC37004C98A5 /* LocalAnswerGeneration */ = {
 			isa = PBXGroup;
 			children = (
 				BFE471B31BFBEC6F004C98A5 /* Patterns.swift */,
 				BFE471B11BFBEC63004C98A5 /* KeyWordFinder.swift */,
 				BFE471AF1BFBEC58004C98A5 /* AnswerRetriever.swift */,
 			);
-			name = AnswerGeneration;
+			name = LocalAnswerGeneration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
