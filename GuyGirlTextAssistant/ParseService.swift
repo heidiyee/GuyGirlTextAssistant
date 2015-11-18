@@ -33,4 +33,19 @@ class ParseService {
         }
         
     }
+    
+    class func updateParseObjectAnswer(objectId: String, answer: String, completion: (success: Bool, error: NSError?) -> Void) {
+        let query = PFQuery(className: kClassName)
+        query.getObjectInBackgroundWithId(objectId) { (object: PFObject?, error: NSError?) -> Void in
+            if let error = error {
+                print(error.description)
+                completion(success: false, error: error)
+            } else if let object = object {
+                object["answerString"] = answer
+                object["hasAsnwer"] = true
+                object.incrementKey("answerCount", byAmount: 1)
+                object.saveInBackground()
+            }
+        }
+    }
 }

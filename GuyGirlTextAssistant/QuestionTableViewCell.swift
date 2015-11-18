@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import Parse
 
 class QuestionTableViewCell: UITableViewCell {
     
-    var question: String? {
+    var question: PFObject! {
         didSet {
-            questionLabel.text = question
+            if let questionString = question["questionString"] as? String {
+                questionLabel.text = questionString
+            }
         }
     }
     

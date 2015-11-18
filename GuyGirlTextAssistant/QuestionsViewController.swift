@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import Parse
 
 class QuestionsViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var questionTableView: UITableView!
-    var questions = [String]() {
+    var questions = [PFObject]() {
         didSet {
             self.questionTableView.reloadData()
         }
@@ -34,11 +35,7 @@ class QuestionsViewController: UIViewController, UITableViewDataSource {
                 return
             }
             if let array = array {
-                for objects in array {
-                    if let questionString = objects["questionString"] as? String {
-                        self.questions.append(questionString)
-                    }
-                }
+                self.questions = array
             }
         }
     }
