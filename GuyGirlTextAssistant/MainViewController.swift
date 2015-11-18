@@ -33,8 +33,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.answersTableView.rowHeight = UITableViewAutomaticDimension
         
         let gradientLayer = CAGradientLayer()
-//        let lightPinkColor = UIColor(red: 1, green: 182/255, blue: 193/255, alpha: 1)
-        gradientLayer.colors = [UIColor.lightGrayColor().CGColor, UIColor.whiteColor().CGColor]
+        gradientLayer.colors = [UIColor(white: 0.9, alpha: 1.0).CGColor, UIColor.whiteColor().CGColor]
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
         
@@ -45,13 +44,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //        self.phraseElementsContainer.insertSubview(lightBlurView, atIndex: 0)
         // OR
 //        self.phraseElementsContainer.backgroundColor = UIColor.whiteColor()
-    }
-    
-    func configureSpeechBubbleTableViewCell(cell: SpeechBubbleTableViewCell, withColor color: UIColor, text: String) {
-        cell.speechBubbleView.layer.cornerRadius = self.cornerRadius
-        cell.speechBubbleView.backgroundColor = color
-        cell.tail.backgroundColor = color
-        cell.speechTextLabel.text = text
     }
     
     override func didReceiveMemoryWarning() {
@@ -83,9 +75,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBAction func textFieldDidEndOnExit(textField: UITextField) {
         if let phraseText = textField.text {
-            let matchesInTextMessage = KeyWordFinder.searchForAllPatterns(phraseText)
-            self.answers = AnswerRetriever.answersforText(matchesInTextMessage)
-            self.answersTableView.reloadData()
+//            let matchesInTextMessage = KeyWordFinder.searchForAllPatterns(phraseText)
+//            self.answers = AnswerRetriever.answersforText(matchesInTextMessage)
+//            self.answersTableView.reloadData()
         }
     }
     
@@ -102,11 +94,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = self.answersTableView.dequeueReusableCellWithIdentifier(LeftSpeechBubbleTableViewCell.identifier()) as! LeftSpeechBubbleTableViewCell
-            self.configureSpeechBubbleTableViewCell(cell, withColor: UIColor.whiteColor(), text: answers[indexPath.row])
+            cell.configureWithColor(UIColor.whiteColor(), text: answers[indexPath.row], cornerRadius: self.cornerRadius)
             return cell
         }
         let cell = self.answersTableView.dequeueReusableCellWithIdentifier(RightSpeechBubbleTableViewCell.identifier()) as! RightSpeechBubbleTableViewCell
-        self.configureSpeechBubbleTableViewCell(cell, withColor: UIColor.grayColor(), text: answers[indexPath.row])
+        cell.configureWithColor(UIColor.darkGrayColor(), text: answers[indexPath.row], cornerRadius: self.cornerRadius)
         return cell
     }
     
