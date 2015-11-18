@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		965433511BFA8E8B00F1E04F /* PersonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965433501BFA8E8B00F1E04F /* PersonCollectionViewCell.swift */; };
+		96C7913C1BFBBE0200C119F3 /* RightSpeechBubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C7913B1BFBBE0200C119F3 /* RightSpeechBubbleTableViewCell.swift */; };
+		96ED3A251BFCE89B00199B7C /* LeftSpeechBubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED3A241BFCE89B00199B7C /* LeftSpeechBubbleTableViewCell.swift */; };
+		96ED3A271BFCF6A900199B7C /* SpeechBubbleTableViewCell Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED3A261BFCF6A900199B7C /* SpeechBubbleTableViewCell Protocol.swift */; };
+		96ED3A291BFD130A00199B7C /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED3A281BFD130A00199B7C /* QuestionsViewController.swift */; };
 		B78EA15B1BFA57F100BDC4D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78EA15A1BFA57F100BDC4D6 /* AppDelegate.swift */; };
 		B78EA15D1BFA57F100BDC4D6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78EA15C1BFA57F100BDC4D6 /* MainViewController.swift */; };
 		B78EA1601BFA57F100BDC4D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B78EA15E1BFA57F100BDC4D6 /* Main.storyboard */; };
@@ -14,12 +19,17 @@
 		B78EA1651BFA57F100BDC4D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B78EA1631BFA57F100BDC4D6 /* LaunchScreen.storyboard */; };
 		B7E4CB041BFA886E00A3E9CA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E4CB031BFA886E00A3E9CA /* SettingsViewController.swift */; };
 		B7E4CB061BFA8FA700A3E9CA /* CustomTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E4CB051BFA8FA700A3E9CA /* CustomTransition.swift */; };
-		BFE471B01BFBEC58004C98A5 /* AnswerRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE471AF1BFBEC58004C98A5 /* AnswerRetriever.swift */; settings = {ASSET_TAGS = (); }; };
-		BFE471B21BFBEC63004C98A5 /* KeyWordFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE471B11BFBEC63004C98A5 /* KeyWordFinder.swift */; settings = {ASSET_TAGS = (); }; };
-		BFE471B41BFBEC6F004C98A5 /* Patterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE471B31BFBEC6F004C98A5 /* Patterns.swift */; settings = {ASSET_TAGS = (); }; };
+		BFE471B01BFBEC58004C98A5 /* AnswerRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE471AF1BFBEC58004C98A5 /* AnswerRetriever.swift */; };
+		BFE471B21BFBEC63004C98A5 /* KeyWordFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE471B11BFBEC63004C98A5 /* KeyWordFinder.swift */; };
+		BFE471B41BFBEC6F004C98A5 /* Patterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE471B31BFBEC6F004C98A5 /* Patterns.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		965433501BFA8E8B00F1E04F /* PersonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonCollectionViewCell.swift; sourceTree = "<group>"; };
+		96C7913B1BFBBE0200C119F3 /* RightSpeechBubbleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightSpeechBubbleTableViewCell.swift; sourceTree = "<group>"; };
+		96ED3A241BFCE89B00199B7C /* LeftSpeechBubbleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSpeechBubbleTableViewCell.swift; sourceTree = "<group>"; };
+		96ED3A261BFCF6A900199B7C /* SpeechBubbleTableViewCell Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SpeechBubbleTableViewCell Protocol.swift"; sourceTree = "<group>"; };
+		96ED3A281BFD130A00199B7C /* QuestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
 		B78EA1571BFA57F100BDC4D6 /* GuyGirlTextAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuyGirlTextAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B78EA15A1BFA57F100BDC4D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B78EA15C1BFA57F100BDC4D6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +79,11 @@
 				B7E4CB031BFA886E00A3E9CA /* SettingsViewController.swift */,
 				B7E4CB051BFA8FA700A3E9CA /* CustomTransition.swift */,
 				B78EA15C1BFA57F100BDC4D6 /* MainViewController.swift */,
+				96ED3A281BFD130A00199B7C /* QuestionsViewController.swift */,
+				965433501BFA8E8B00F1E04F /* PersonCollectionViewCell.swift */,
+				96ED3A261BFCF6A900199B7C /* SpeechBubbleTableViewCell Protocol.swift */,
+				96ED3A241BFCE89B00199B7C /* LeftSpeechBubbleTableViewCell.swift */,
+				96C7913B1BFBBE0200C119F3 /* RightSpeechBubbleTableViewCell.swift */,
 				B78EA15E1BFA57F100BDC4D6 /* Main.storyboard */,
 				B78EA1611BFA57F100BDC4D6 /* Assets.xcassets */,
 				B78EA1631BFA57F100BDC4D6 /* LaunchScreen.storyboard */,
@@ -159,11 +174,16 @@
 			files = (
 				BFE471B01BFBEC58004C98A5 /* AnswerRetriever.swift in Sources */,
 				B78EA15D1BFA57F100BDC4D6 /* MainViewController.swift in Sources */,
+				96ED3A291BFD130A00199B7C /* QuestionsViewController.swift in Sources */,
 				B78EA15B1BFA57F100BDC4D6 /* AppDelegate.swift in Sources */,
 				B7E4CB041BFA886E00A3E9CA /* SettingsViewController.swift in Sources */,
 				B7E4CB061BFA8FA700A3E9CA /* CustomTransition.swift in Sources */,
 				BFE471B21BFBEC63004C98A5 /* KeyWordFinder.swift in Sources */,
 				BFE471B41BFBEC6F004C98A5 /* Patterns.swift in Sources */,
+				96C7913C1BFBBE0200C119F3 /* RightSpeechBubbleTableViewCell.swift in Sources */,
+				96ED3A251BFCE89B00199B7C /* LeftSpeechBubbleTableViewCell.swift in Sources */,
+				96ED3A271BFCF6A900199B7C /* SpeechBubbleTableViewCell Protocol.swift in Sources */,
+				965433511BFA8E8B00F1E04F /* PersonCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
