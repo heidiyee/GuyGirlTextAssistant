@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIViewControllerTransitioningDelegate {
 
@@ -47,6 +48,13 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //        self.phraseElementsContainer.insertSubview(lightBlurView, atIndex: 0)
         // OR
 //        self.phraseElementsContainer.backgroundColor = UIColor.whiteColor()
+        
+        
+        let testObject = PFObject(className: "TestObject")
+        testObject["foo"] = "bar"
+        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            print("Object has been saved.")
+        }
     }
     
     override func didReceiveMemoryWarning() {
