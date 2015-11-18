@@ -10,23 +10,15 @@ import Foundation
 
 class KeyWordFinder {
     
-//    static let prefixes = ["who, what"]
-//    let subjects = ["\\she", "she\\s", "boy", "girl"]
-//    let activities = ["dancing", "singing", "flirting", "making out with"]
-//    let greetings = [ "how are you", "hi", "hello"]
-    
     static let shared = KeyWordFinder()
 
-    
     //MARK: ListMatches Looks for a single patern and returns the pattern back if matches.
 
     class func listMatches(pattern: String, inString string: String) -> String? {
         do {
-            
             let regex = try NSRegularExpression(pattern: pattern, options: .CaseInsensitive)
             let range = NSMakeRange(0, string.characters.count)
             let matches = regex.matchesInString(string, options: .ReportCompletion, range: range) as [NSTextCheckingResult]
-            
             if matches.count > 0 {
                 return pattern
             }
@@ -35,7 +27,6 @@ class KeyWordFinder {
             print(error.localizedDescription)
             return nil
         }
-        
         return nil
     }
     
@@ -67,7 +58,6 @@ class KeyWordFinder {
         }
         if let subjectMatches = listAllMatches(subjects, originalString: inString) {
             result += subjectMatches
-            print(result)
         }
         if let activityMatches = listAllMatches(activities, originalString: inString) {
             result += activityMatches
@@ -76,8 +66,6 @@ class KeyWordFinder {
         if let greetingMatches = listAllMatches(greetings, originalString: inString) {
             result += greetingMatches
         }
-        print(result)
-        
         return result
     }
 }
