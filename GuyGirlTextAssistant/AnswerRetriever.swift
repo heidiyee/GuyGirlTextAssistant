@@ -26,7 +26,7 @@ class AnswerRetriever {
 }
 }
 
-// Answers will be a singleton with an Array
+// Roman is working on this part: he will make more answers and make it modular so it can have it's own file. And also add the tags to the Patterns file so we can actually find the matches.
 
 struct AnswersWithTag {
     var tag: String
@@ -41,17 +41,3 @@ var goodbye = AnswersWithTag(tag: "bye", tagTwo: "later", suggestedAnswers: ["Lo
 
 var taggedAnswers = [greeting, invitation, goodbye]
 
-
-//struct AnswerGreeting {
-//    var suggestedAnswers = ["Hi, Pretty", "Hi, There I was thinking about you", "Hello, it's so great to hear from you", "Doing great, what about yourself"]
-//    var cannedAnswers = ["Thank you!", "Awesome!", "Hey, Hi!", "You too"]
-//    var tag = "hi"
-//    var tagTwo = "hello"
-//}
-//
-//struct GoodByeAnswers {
-//    var suggestedAnswers = ["Hi, Pretty", "Hi, There I was thinking about you", "Hello, it's so great to hear from you", "Doing great, what about yourself"]
-//    var cannedAnswers = ["Thank you!", "Awesome!", "Hey, Hi!", "You too"]
-//    var tag = "hi"
-//    var tagTwo = "hello"
-//}
