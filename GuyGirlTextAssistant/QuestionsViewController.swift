@@ -9,9 +9,10 @@
 import UIKit
 import Parse
 
-class QuestionsViewController: UIViewController, UITableViewDataSource {
+class QuestionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var questionTableView: UITableView!
+    
     var questions = [PFObject]() {
         didSet {
             self.questionTableView.reloadData()
@@ -24,7 +25,12 @@ class QuestionsViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.questionTableView.dataSource = self
+        self.questionTableView.delegate = self
+        
+        self.questionTableView.registerNib(UINib(nibName: LeftSpeechBubbleTableViewCell.identifier(), bundle: nil), forCellReuseIdentifier: LeftSpeechBubbleTableViewCell.identifier())
+        
         getParseObjects()
     }
     
@@ -44,13 +50,30 @@ class QuestionsViewController: UIViewController, UITableViewDataSource {
         super.didReceiveMemoryWarning()
     }
     
+    // MARK: Table view data source
+
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = questionTableView.dequeueReusableCellWithIdentifier(QuestionTableViewCell.identifier(), forIndexPath: indexPath) as! QuestionTableViewCell
-        cell.question = self.questions[indexPath.row]
+        let cell = questionTableView.dequeueReusableCellWithIdentifier(LeftSpeechBubbleTableViewCell.identifier(), forIndexPath: indexPath) as! LeftSpeechBubbleTableViewCell
+        cell.configureWithColor(UIColor.blueColor(), text: self.questions[indexPath.row]["questionString"] as! String, cornerRadius: kSpeechBubbleCornerRadius)
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return questions.count
+    }
+    
+    // MARK: Table view delegate
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier(AnswererViewController.identifier(), sender: self)
+    }
+    
+    // MARK: Segues
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == AnswererViewController.identifier() {
+            let answererViewController = segue.destinationViewController as! AnswererViewController
+            answererViewController.question = self.questions[self.questionTableView.indexPathForSelectedRow!.row]
+        }
     }
 }

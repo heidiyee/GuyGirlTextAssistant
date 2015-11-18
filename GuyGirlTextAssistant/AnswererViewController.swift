@@ -1,26 +1,28 @@
 //
-//  ViewController.swift
+//  AnswererViewController.swift
 //  GuyGirlTextAssistant
 //
-//  Created by Heidi Yee on 11/16/15.
+//  Created by Work on 11/18/15.
 //
 //
 
 import UIKit
 import Parse
 
-class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIViewControllerTransitioningDelegate {
+class AnswererViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var answers = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Donec a diam lectus.", "Sed sit amet ipsum mauris.", "Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.", "Donec a diam lectus."]// [String]()
+    var question: PFObject?
     
-    @IBOutlet weak var phraseTextField: UITextField!
+    var answers = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Donec a diam lectus.", "Sed sit amet ipsum mauris.", "Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit."]
+    
     @IBOutlet weak var answersTableView: UITableView!
+    @IBOutlet weak var phraseTextField: UITextField!
     @IBOutlet weak var phraseElementsContainer: UIView!
-    
+
     class func identifier() -> String {
-        return "MainViewController"
+        return "AnswererViewController"
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +33,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [UIColor(white: 0.9, alpha: 1.0).CGColor, UIColor.whiteColor().CGColor]
-//        gradientLayer.colors = [UIColor(white: 0.3, alpha: 1.0).CGColor, UIColor(white: 0.2, alpha: 1.0).CGColor]
+        //        gradientLayer.colors = [UIColor(white: 0.3, alpha: 1.0).CGColor, UIColor(white: 0.2, alpha: 1.0).CGColor]
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
         
@@ -39,37 +41,20 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.answersTableView.registerNib(UINib(nibName: RightSpeechBubbleTableViewCell.identifier(), bundle: nil), forCellReuseIdentifier: RightSpeechBubbleTableViewCell.identifier())
         
         self.phraseElementsContainer.backgroundColor = UIColor.clearColor()
-
-//        let lightBlurView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Light))
-//        lightBlurView.frame = self.phraseElementsContainer.bounds
-//        self.phraseElementsContainer.backgroundColor = UIColor.clearColor()
-//        self.phraseElementsContainer.insertSubview(lightBlurView, atIndex: 0)
+        
+        //        let lightBlurView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Light))
+        //        lightBlurView.frame = self.phraseElementsContainer.bounds
+        //        self.phraseElementsContainer.backgroundColor = UIColor.clearColor()
+        //        self.phraseElementsContainer.insertSubview(lightBlurView, atIndex: 0)
         // OR
-//        self.phraseElementsContainer.backgroundColor = UIColor.whiteColor()
-        
-        
-        let testObject = PFObject(className: "TestObject")
-        testObject["foo"] = "bar"
-        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-            print("Object has been saved.")
-        }
+        //        self.phraseElementsContainer.backgroundColor = UIColor.whiteColor()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "SettingsViewController" {
-            guard let settingVC = segue.destinationViewController as? SettingsViewController else {return}
-            settingVC.transitioningDelegate = self
-            settingVC.completion = ({success in
-                self.dismissViewControllerAnimated(true, completion: nil)
-            })
-        }
-    }
-    
+
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return CustomTransition(duration: 2.0)
     }
@@ -80,9 +65,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if let phraseText = textField.text {
             self.answers.append(phraseText)
             self.answersTableView.reloadData()
-//            let matchesInTextMessage = KeyWordFinder.searchForAllPatterns(phraseText)
-//            self.answers = AnswerRetriever.answersforText(matchesInTextMessage)
-//            self.answersTableView.reloadData()
+            //            let matchesInTextMessage = KeyWordFinder.searchForAllPatterns(phraseText)
+            //            self.answers = AnswerRetriever.answersforText(matchesInTextMessage)
+            //            self.answersTableView.reloadData()
         }
     }
     
@@ -91,16 +76,16 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return answers.count
     }
-
+    
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         SpeechBubbleTableViewCellAnimator.animate(cell)
         cell.backgroundColor = UIColor.clearColor()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = self.answersTableView.dequeueReusableCellWithIdentifier(LeftSpeechBubbleTableViewCell.identifier()) as! LeftSpeechBubbleTableViewCell
-//        cell.configureWithColor(UIColor.whiteColor(), text: answers[indexPath.row], cornerRadius: self.cornerRadius)
-//        return cell
+        //        let cell = self.answersTableView.dequeueReusableCellWithIdentifier(LeftSpeechBubbleTableViewCell.identifier()) as! LeftSpeechBubbleTableViewCell
+        //        cell.configureWithColor(UIColor.whiteColor(), text: answers[indexPath.row], cornerRadius: self.cornerRadius)
+        //        return cell
         
         if indexPath.row == 0 {
             let cell = self.answersTableView.dequeueReusableCellWithIdentifier(LeftSpeechBubbleTableViewCell.identifier()) as! LeftSpeechBubbleTableViewCell
