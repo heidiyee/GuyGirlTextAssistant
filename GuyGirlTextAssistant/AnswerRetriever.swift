@@ -41,3 +41,50 @@ var goodbye = AnswersWithTag(tag: "bye", tagTwo: "later", suggestedAnswers: ["Lo
 
 var taggedAnswers = [greeting, invitation, goodbye]
 
+
+
+class GreetingMessages {
+	
+	class func greetingMessages () {
+		
+		struct Tags {
+			let tag: String
+			let tagTwo: String
+			let tagthree: String
+			let tagFour: String
+			let tagFive: String?
+			let tagSix: String?
+			let tagSeven: String?
+			let tagEight: String?
+			let tagNine: String?
+			let tagTen: String?
+			let suggestedAnswer: [String]
+			static let cannedAnswers = []
+		}
+		
+		let greetingTag = Tags(tag: "hi", tagTwo: "hello", tagthree: "hey", tagFour: "what's up", tagFive: "hola",
+			tagSix: "can we talk", tagSeven: "yo",tagEight: "morning", tagNine: "goodmorning", tagTen: "sup",
+			
+			suggestedAnswer: ["Hey, So glad to hear from you", "I was just thinking about you", "Sorry, I'm super busy right now","hello,hi,", "Hi there!", "I cant talk right now", "Let me call you"])
+		
+		let byeTag = Tags(tag: "bye", tagTwo: "ttyl", tagthree: "goodnight", tagFour: "later", tagFive: "goodbye",
+			tagSix: "dont text me again", tagSeven: "seeya", tagEight: "nice meeting you", tagNine: "Im going to bed", tagTen: "",
+			
+			suggestedAnswer: ["GoodBye", "It was a pleassure talking with you", "I had fun today", "goodnight", "Sweet Dreams", "lets hang out again/lets hang out soon?"])
+		
+		let questionTags = Tags(tag: "what", tagTwo: "who", tagthree: "where", tagFour: "when", tagFive: "wat", tagSix: "will you", tagSeven: "can you", tagEight: "may I", tagNine: "would you", tagTen: "", suggestedAnswer: ["Why don't you tell me first", "that sounds interesting, tell me more about it", "I will love to do that", "why dont we try this _ "])
+
+		let suggestionTags = Tags(tag: "", tagTwo: <#T##String#>, tagthree: <#T##String#>, tagFour: <#T##String#>, tagFive: <#T##String?#>, tagSix: <#T##String?#>, tagSeven: <#T##String?#>, tagEight: <#T##String?#>, tagNine: <#T##String?#>, tagTen: <#T##String?#>, suggestedAnswer: <#T##[String]#>)
+		
+		
+		
+		
+		
+	}
+	
+}
+
+
+
+
+
