@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="47" id="j9A-oJ-WQ5" customClass="LeftSpeechBubbleTableViewCell" customModule="GuyGirlTextAssistant" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j9A-oJ-WQ5" id="a39-IZ-j6C">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="46.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g5C-fl-Y7u">
+                        <rect key="frame" x="8" y="24" width="16.5" height="18"/>
+                        <animations/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FMA-lW-Huh">
+                        <rect key="frame" x="8" y="6" width="32.5" height="36"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRN-01-hTA">
+                                <rect key="frame" x="12" y="8" width="8.5" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DRN-01-hTA" firstAttribute="leading" secondItem="FMA-lW-Huh" secondAttribute="leading" constant="12" id="5uG-0v-NWT"/>
+                            <constraint firstAttribute="bottom" secondItem="DRN-01-hTA" secondAttribute="bottom" constant="7" id="b8r-RC-8X0"/>
+                            <constraint firstAttribute="trailing" secondItem="DRN-01-hTA" secondAttribute="trailing" constant="12" id="jno-jE-22x"/>
+                            <constraint firstItem="DRN-01-hTA" firstAttribute="top" secondItem="FMA-lW-Huh" secondAttribute="top" constant="8" id="yPG-6t-2yi"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="FMA-lW-Huh" firstAttribute="top" secondItem="a39-IZ-j6C" secondAttribute="topMargin" constant="-2" id="0XN-ri-xdg"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="FMA-lW-Huh" secondAttribute="bottom" constant="-2.5" id="3mA-Fm-niK"/>
+                    <constraint firstItem="g5C-fl-Y7u" firstAttribute="leading" secondItem="FMA-lW-Huh" secondAttribute="leading" id="89P-Gi-cIS"/>
+                    <constraint firstItem="FMA-lW-Huh" firstAttribute="top" secondItem="a39-IZ-j6C" secondAttribute="topMargin" constant="-2" id="Mh9-bK-iLR"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="FMA-lW-Huh" secondAttribute="bottom" constant="-1.5" id="ZBj-98-xMY"/>
+                    <constraint firstItem="FMA-lW-Huh" firstAttribute="top" secondItem="a39-IZ-j6C" secondAttribute="topMargin" constant="-1" id="amo-LY-HLS"/>
+                    <constraint firstItem="g5C-fl-Y7u" firstAttribute="bottom" secondItem="FMA-lW-Huh" secondAttribute="bottom" id="eGJ-tH-nXk"/>
+                    <constraint firstItem="g5C-fl-Y7u" firstAttribute="height" secondItem="FMA-lW-Huh" secondAttribute="height" multiplier="0.5" id="fc9-aR-2Dz"/>
+                    <constraint firstItem="g5C-fl-Y7u" firstAttribute="width" secondItem="FMA-lW-Huh" secondAttribute="width" multiplier="0.5" id="jvX-fS-Lzm"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="FMA-lW-Huh" secondAttribute="bottom" constant="-3.5" id="lRW-wS-FZQ"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="FMA-lW-Huh" secondAttribute="trailing" constant="8" id="scb-4P-bgZ"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="FMA-lW-Huh" secondAttribute="leading" id="tq1-XV-SWA"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="0XN-ri-xdg"/>
+                        <exclude reference="3mA-Fm-niK"/>
+                        <exclude reference="ZBj-98-xMY"/>
+                        <exclude reference="amo-LY-HLS"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="speechBubbleView" destination="FMA-lW-Huh" id="bge-9e-Vzc"/>
+                <outlet property="speechTextLabel" destination="DRN-01-hTA" id="rke-cA-2cE"/>
+                <outlet property="tail" destination="g5C-fl-Y7u" id="bpO-rl-tMO"/>
+            </connections>
+            <point key="canvasLocation" x="484" y="302.5"/>
+        </tableViewCell>
+    </objects>
+</document>
