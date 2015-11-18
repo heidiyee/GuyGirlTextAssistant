@@ -8,6 +8,8 @@
 
 import UIKit
 
+let kSpeechBubbleCornerRadius: CGFloat = 18.0
+
 protocol SpeechBubbleTableViewCell {
     weak var speechBubbleView: UIView! { get set }
     weak var speechTextLabel: UILabel! { get set }
