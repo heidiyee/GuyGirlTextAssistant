@@ -10,7 +10,9 @@ import UIKit
 
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIViewControllerTransitioningDelegate {
 
-    var answers = ["Ayylmao", "Lorem ipsum dolor sit amet", "Sed sit amet", "Ipsum mauris"]
+    var answers = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Donec a diam lectus.", "Sed sit amet ipsum mauris.", "Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit."]// [String]()
+    
+    let cornerRadius: CGFloat = 18
     
     @IBOutlet weak var phraseTextField: UITextField!
     @IBOutlet weak var phraseLabel: UILabel!
@@ -27,16 +29,23 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.answersTableView.dataSource = self
         self.answersTableView.delegate = self
         self.answersTableView.layer.cornerRadius = 10
+        self.answersTableView.estimatedRowHeight = 44
+        self.answersTableView.rowHeight = UITableViewAutomaticDimension
         
         let gradientLayer = CAGradientLayer()
-        let lightPinkColor = UIColor(red: 1, green: 182/255, blue: 193/255, alpha: 1)
-        gradientLayer.colors = [lightPinkColor.CGColor, UIColor.whiteColor().CGColor]
+//        let lightPinkColor = UIColor(red: 1, green: 182/255, blue: 193/255, alpha: 1)
+        gradientLayer.colors = [UIColor.lightGrayColor().CGColor, UIColor.whiteColor().CGColor]
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
         
-        let lightBlurView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Light))
-        lightBlurView.frame = self.phraseElementsContainer.bounds
-        self.phraseElementsContainer.insertSubview(lightBlurView, atIndex: 0)
+        
+        
+//        self.phraseElementsContainer.backgroundColor = UIColor.clearColor()
+        
+//        let lightBlurView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Light))
+//        lightBlurView.frame = self.phraseElementsContainer.bounds
+//        self.phraseElementsContainer.insertSubview(lightBlurView, atIndex: 0)
+        // OR
 //        self.phraseElementsContainer.backgroundColor = UIColor.whiteColor()
     }
     
@@ -62,14 +71,17 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // MARK: Text field actions
 
     @IBAction func textFieldEditingChanged(textField: UITextField) {
-        if let phraseText = textField.text, phraseLabel = self.phraseLabel {
-            phraseLabel.text = "“\(phraseText)”"
-        }
+//        if let phraseText = textField.text, phraseLabel = self.phraseLabel {
+//            phraseLabel.text = "“\(phraseText)”"
+//        }
     }
     
     @IBAction func textFieldDidEndOnExit(textField: UITextField) {
-        self.phraseTextField.text = nil
-//        self.phraseTextField.hidden = true
+        if let phraseText = textField.text {
+            let matchesInTextMessage = KeyWordFinder.searchForAllPatterns(phraseText)
+            self.answers = AnswerRetriever.answersforText(matchesInTextMessage)
+            self.answersTableView.reloadData()
+        }
     }
     
     // MARK: Table view data source
@@ -81,8 +93,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.answersTableView.dequeueReusableCellWithIdentifier(AnswerTableViewCell.identifier()) as! AnswerTableViewCell
         cell.answerTextLabel.text = answers[indexPath.row]
-        cell.textParentView.layer.cornerRadius = 16.0
-//        cell.textParentView.backgroundColor = UIColor.whiteColor()
+        cell.answerTextParentView.layer.cornerRadius = self.cornerRadius
+        cell.answerTextParentView.backgroundColor = UIColor.grayColor()
+        cell.tail.backgroundColor = UIColor.grayColor()
         return cell
     }
 }

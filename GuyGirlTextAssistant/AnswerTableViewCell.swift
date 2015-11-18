@@ -10,8 +10,9 @@ import UIKit
 
 class AnswerTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var textParentView: UIView!
+    @IBOutlet weak var answerTextParentView: UIView!
     @IBOutlet weak var answerTextLabel: UILabel!
+    @IBOutlet weak var tail: UIView!
     
     class func identifier() -> String {
         return "AnswerTableViewCell"

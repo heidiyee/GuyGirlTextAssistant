@@ -19,12 +19,10 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var relationshipOptionsButton: UISegmentedControl!
     @IBOutlet weak var goalOptionsButton: UISegmentedControl!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //setupView()
     }
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class CustomTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
     var duration = 1.0
