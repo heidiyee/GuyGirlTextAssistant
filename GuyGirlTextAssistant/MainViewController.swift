@@ -38,8 +38,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
         
-        
-        
 //        self.phraseElementsContainer.backgroundColor = UIColor.clearColor()
         
 //        let lightBlurView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Light))
@@ -47,6 +45,13 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //        self.phraseElementsContainer.insertSubview(lightBlurView, atIndex: 0)
         // OR
 //        self.phraseElementsContainer.backgroundColor = UIColor.whiteColor()
+    }
+    
+    func configureSpeechBubbleTableViewCell(cell: SpeechBubbleTableViewCell, withColor color: UIColor, text: String) {
+        cell.speechBubbleView.layer.cornerRadius = self.cornerRadius
+        cell.speechBubbleView.backgroundColor = color
+        cell.tail.backgroundColor = color
+        cell.speechTextLabel.text = text
     }
     
     override func didReceiveMemoryWarning() {
@@ -90,13 +95,22 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return answers.count
     }
 
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.backgroundColor = UIColor.clearColor()
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.answersTableView.dequeueReusableCellWithIdentifier(AnswerTableViewCell.identifier()) as! AnswerTableViewCell
-        cell.answerTextLabel.text = answers[indexPath.row]
-        cell.answerTextParentView.layer.cornerRadius = self.cornerRadius
-        cell.answerTextParentView.backgroundColor = UIColor.grayColor()
-        cell.tail.backgroundColor = UIColor.grayColor()
+        if indexPath.row == 0 {
+            let cell = self.answersTableView.dequeueReusableCellWithIdentifier(LeftSpeechBubbleTableViewCell.identifier()) as! LeftSpeechBubbleTableViewCell
+            self.configureSpeechBubbleTableViewCell(cell, withColor: UIColor.whiteColor(), text: answers[indexPath.row])
+            return cell
+        }
+        let cell = self.answersTableView.dequeueReusableCellWithIdentifier(RightSpeechBubbleTableViewCell.identifier()) as! RightSpeechBubbleTableViewCell
+        self.configureSpeechBubbleTableViewCell(cell, withColor: UIColor.grayColor(), text: answers[indexPath.row])
         return cell
     }
+    
+    
+    
 }
 
