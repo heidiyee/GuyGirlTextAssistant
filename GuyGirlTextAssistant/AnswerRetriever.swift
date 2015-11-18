@@ -29,8 +29,8 @@ class AnswerRetriever {
 // Roman is working on this part: he will make more answers and make it modular so it can have it's own file. And also add the tags to the Patterns file so we can actually find the matches.
 
 struct AnswersWithTag {
-    var tag: String?
-    var tagTwo: String?
+    var tag: String
+    var tagTwo: String
     var suggestedAnswers: [String]
     static let cannedAnswers = ["It's so nice to hear from you", "Thank you!", "Awesome!", "Hey, Hi!", "You too", "That sounds great", "Right back at you", "Sorry, I'm super busy right now"]
 }
