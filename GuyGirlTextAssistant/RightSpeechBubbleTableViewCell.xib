@@ -8,11 +8,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RightSpeechBubbleTableViewCell" rowHeight="48" id="pyy-L8-qD1" customClass="RightSpeechBubbleTableViewCell" customModule="GuyGirlTextAssistant" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RightSpeechBubbleTableViewCell" rowHeight="47" id="pyy-L8-qD1" customClass="RightSpeechBubbleTableViewCell" customModule="GuyGirlTextAssistant" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pyy-L8-qD1" id="CMg-Re-YwQ">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="47.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="46.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hTL-me-aln">
@@ -27,7 +27,7 @@
                                 <rect key="frame" x="12" y="8" width="8.5" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -48,6 +48,7 @@
                     <constraint firstItem="hTL-me-aln" firstAttribute="trailing" secondItem="WA5-en-rla" secondAttribute="trailing" id="AUp-FC-QHm"/>
                     <constraint firstAttribute="bottomMargin" secondItem="WA5-en-rla" secondAttribute="bottom" constant="-2.5" id="DGU-0x-1DJ"/>
                     <constraint firstItem="hTL-me-aln" firstAttribute="width" secondItem="WA5-en-rla" secondAttribute="width" multiplier="0.5" id="ExF-zC-coj"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="WA5-en-rla" secondAttribute="bottom" constant="-3.5" id="LDC-MY-rPd"/>
                     <constraint firstItem="WA5-en-rla" firstAttribute="top" secondItem="CMg-Re-YwQ" secondAttribute="topMargin" constant="-2" id="LfW-w0-cVM"/>
                     <constraint firstItem="WA5-en-rla" firstAttribute="top" secondItem="CMg-Re-YwQ" secondAttribute="topMargin" constant="-1" id="NP8-bz-jXW"/>
                     <constraint firstAttribute="bottomMargin" secondItem="WA5-en-rla" secondAttribute="bottom" constant="-1.5" id="NaL-s1-5ws"/>
@@ -56,6 +57,7 @@
                     <constraint firstItem="hTL-me-aln" firstAttribute="height" secondItem="WA5-en-rla" secondAttribute="height" multiplier="0.5" id="RUn-rV-3e4"/>
                     <constraint firstAttribute="bottomMargin" secondItem="WA5-en-rla" secondAttribute="bottom" constant="-1.5" id="TZS-OY-Tfx"/>
                     <constraint firstItem="WA5-en-rla" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CMg-Re-YwQ" secondAttribute="leadingMargin" constant="8" id="YCp-bI-JFy"/>
+                    <constraint firstItem="WA5-en-rla" firstAttribute="top" secondItem="CMg-Re-YwQ" secondAttribute="topMargin" constant="-2" id="ZN7-a9-g0w"/>
                     <constraint firstItem="hTL-me-aln" firstAttribute="bottom" secondItem="WA5-en-rla" secondAttribute="bottom" id="dsI-Um-MEg"/>
                     <constraint firstItem="WA5-en-rla" firstAttribute="top" secondItem="CMg-Re-YwQ" secondAttribute="topMargin" constant="-1" id="pyc-ly-1uh"/>
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="WA5-en-rla" secondAttribute="trailing" constant="8" id="yVg-dA-f8s"/>
@@ -63,6 +65,8 @@
                 <variation key="default">
                     <mask key="constraints">
                         <exclude reference="0d1-5K-yhl"/>
+                        <exclude reference="DGU-0x-1DJ"/>
+                        <exclude reference="LfW-w0-cVM"/>
                         <exclude reference="NP8-bz-jXW"/>
                         <exclude reference="NaL-s1-5ws"/>
                         <exclude reference="TZS-OY-Tfx"/>
@@ -79,7 +83,7 @@
                 <outlet property="speechTextLabel" destination="eMP-Zh-d3a" id="vmQ-VC-JgG"/>
                 <outlet property="tail" destination="hTL-me-aln" id="tqj-za-xrh"/>
             </connections>
-            <point key="canvasLocation" x="250" y="302"/>
+            <point key="canvasLocation" x="250" y="301.5"/>
         </tableViewCell>
     </objects>
 </document>
