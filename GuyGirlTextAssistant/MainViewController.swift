@@ -30,8 +30,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.answersTableView.rowHeight = UITableViewAutomaticDimension
         
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor(white: 0.9, alpha: 1.0).CGColor, UIColor.whiteColor().CGColor]
-//        gradientLayer.colors = [UIColor(white: 0.3, alpha: 1.0).CGColor, UIColor(white: 0.2, alpha: 1.0).CGColor]
+        gradientLayer.colors = kQuestionBackgroundCGColorGradientArray
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
         

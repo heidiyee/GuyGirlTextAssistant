@@ -8,23 +8,23 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="47" id="j9A-oJ-WQ5" customClass="LeftSpeechBubbleTableViewCell" customModule="GuyGirlTextAssistant" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="j9A-oJ-WQ5" customClass="LeftSpeechBubbleTableViewCell" customModule="GuyGirlTextAssistant" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j9A-oJ-WQ5" id="a39-IZ-j6C">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="46.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="74.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g5C-fl-Y7u">
-                        <rect key="frame" x="8" y="24" width="16.5" height="18"/>
+                        <rect key="frame" x="8" y="17.5" width="16.5" height="18"/>
                         <animations/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FMA-lW-Huh">
-                        <rect key="frame" x="8" y="6" width="32.5" height="36"/>
+                        <rect key="frame" x="8" y="0.0" width="32.5" height="35.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRN-01-hTA">
-                                <rect key="frame" x="12" y="8" width="8.5" height="21"/>
+                                <rect key="frame" x="12" y="8" width="8.5" height="20.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -55,13 +55,17 @@
                     <constraint firstAttribute="bottomMargin" secondItem="FMA-lW-Huh" secondAttribute="bottom" constant="-3.5" id="lRW-wS-FZQ"/>
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="FMA-lW-Huh" secondAttribute="trailing" constant="8" id="scb-4P-bgZ"/>
                     <constraint firstAttribute="leadingMargin" secondItem="FMA-lW-Huh" secondAttribute="leading" id="tq1-XV-SWA"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="FMA-lW-Huh" secondAttribute="bottom" constant="5" id="zIl-qz-8Sj"/>
+                    <constraint firstItem="FMA-lW-Huh" firstAttribute="top" secondItem="a39-IZ-j6C" secondAttribute="top" id="zab-di-QuE"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
                         <exclude reference="0XN-ri-xdg"/>
                         <exclude reference="3mA-Fm-niK"/>
+                        <exclude reference="Mh9-bK-iLR"/>
                         <exclude reference="ZBj-98-xMY"/>
                         <exclude reference="amo-LY-HLS"/>
+                        <exclude reference="lRW-wS-FZQ"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
@@ -71,7 +75,7 @@
                 <outlet property="speechTextLabel" destination="DRN-01-hTA" id="rke-cA-2cE"/>
                 <outlet property="tail" destination="g5C-fl-Y7u" id="bpO-rl-tMO"/>
             </connections>
-            <point key="canvasLocation" x="484" y="302.5"/>
+            <point key="canvasLocation" x="484" y="316.5"/>
         </tableViewCell>
     </objects>
 </document>

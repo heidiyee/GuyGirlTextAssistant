@@ -16,12 +16,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hTL-me-aln">
-                        <rect key="frame" x="295" y="24" width="16.5" height="18"/>
+                        <rect key="frame" x="295" y="18" width="16.5" height="18"/>
                         <animations/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WA5-en-rla">
-                        <rect key="frame" x="279" y="6" width="32.5" height="36"/>
+                        <rect key="frame" x="279" y="0.0" width="32.5" height="36"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMP-Zh-d3a">
                                 <rect key="frame" x="12" y="8" width="8.5" height="21"/>
@@ -50,6 +50,7 @@
                     <constraint firstItem="hTL-me-aln" firstAttribute="width" secondItem="WA5-en-rla" secondAttribute="width" multiplier="0.5" id="ExF-zC-coj"/>
                     <constraint firstAttribute="bottomMargin" secondItem="WA5-en-rla" secondAttribute="bottom" constant="-3.5" id="LDC-MY-rPd"/>
                     <constraint firstItem="WA5-en-rla" firstAttribute="top" secondItem="CMg-Re-YwQ" secondAttribute="topMargin" constant="-2" id="LfW-w0-cVM"/>
+                    <constraint firstAttribute="bottom" secondItem="WA5-en-rla" secondAttribute="bottom" constant="10" id="LhT-YB-ep1"/>
                     <constraint firstItem="WA5-en-rla" firstAttribute="top" secondItem="CMg-Re-YwQ" secondAttribute="topMargin" constant="-1" id="NP8-bz-jXW"/>
                     <constraint firstAttribute="bottomMargin" secondItem="WA5-en-rla" secondAttribute="bottom" constant="-1.5" id="NaL-s1-5ws"/>
                     <constraint firstItem="hTL-me-aln" firstAttribute="leading" secondItem="WA5-en-rla" secondAttribute="leading" id="P4e-Dv-NJK"/>
@@ -58,6 +59,7 @@
                     <constraint firstAttribute="bottomMargin" secondItem="WA5-en-rla" secondAttribute="bottom" constant="-1.5" id="TZS-OY-Tfx"/>
                     <constraint firstItem="WA5-en-rla" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CMg-Re-YwQ" secondAttribute="leadingMargin" constant="8" id="YCp-bI-JFy"/>
                     <constraint firstItem="WA5-en-rla" firstAttribute="top" secondItem="CMg-Re-YwQ" secondAttribute="topMargin" constant="-2" id="ZN7-a9-g0w"/>
+                    <constraint firstItem="WA5-en-rla" firstAttribute="top" secondItem="CMg-Re-YwQ" secondAttribute="top" id="c3r-dI-su1"/>
                     <constraint firstItem="hTL-me-aln" firstAttribute="bottom" secondItem="WA5-en-rla" secondAttribute="bottom" id="dsI-Um-MEg"/>
                     <constraint firstItem="WA5-en-rla" firstAttribute="top" secondItem="CMg-Re-YwQ" secondAttribute="topMargin" constant="-1" id="pyc-ly-1uh"/>
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="WA5-en-rla" secondAttribute="trailing" constant="8" id="yVg-dA-f8s"/>
@@ -66,10 +68,12 @@
                     <mask key="constraints">
                         <exclude reference="0d1-5K-yhl"/>
                         <exclude reference="DGU-0x-1DJ"/>
+                        <exclude reference="LDC-MY-rPd"/>
                         <exclude reference="LfW-w0-cVM"/>
                         <exclude reference="NP8-bz-jXW"/>
                         <exclude reference="NaL-s1-5ws"/>
                         <exclude reference="TZS-OY-Tfx"/>
+                        <exclude reference="ZN7-a9-g0w"/>
                         <exclude reference="pyc-ly-1uh"/>
                         <exclude reference="yVg-dA-f8s"/>
                         <exclude reference="P4e-Dv-NJK"/>
