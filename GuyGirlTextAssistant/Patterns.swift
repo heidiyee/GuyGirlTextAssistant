@@ -11,5 +11,6 @@ import Foundation
 //MARK: Patterns (have to be all lower case)
 let prefixes = ["who, what"]
 let subjects = ["\\she", "she\\s", "boy", "girl"]
-let activities = ["dancing", "singing", "flirting", "making out with"]
-let greetings = [ "how are you", "hi", "hello"]
+let activities = ["dancing", "singing", "flirting", "making out with", "go", "out"]
+let greetings = [ "how are you", "hi", "hello", "bye", "later"]
+
