@@ -12,6 +12,8 @@
 		96ED3A251BFCE89B00199B7C /* LeftSpeechBubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED3A241BFCE89B00199B7C /* LeftSpeechBubbleTableViewCell.swift */; };
 		96ED3A271BFCF6A900199B7C /* SpeechBubbleTableViewCell Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED3A261BFCF6A900199B7C /* SpeechBubbleTableViewCell Protocol.swift */; };
 		96ED3A291BFD130A00199B7C /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED3A281BFD130A00199B7C /* QuestionsViewController.swift */; };
+		96ED3A2B1BFD148200199B7C /* LeftSpeechBubbleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96ED3A2A1BFD148200199B7C /* LeftSpeechBubbleTableViewCell.xib */; };
+		96ED3A2D1BFD149100199B7C /* RightSpeechBubbleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96ED3A2C1BFD149100199B7C /* RightSpeechBubbleTableViewCell.xib */; };
 		B78EA15B1BFA57F100BDC4D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78EA15A1BFA57F100BDC4D6 /* AppDelegate.swift */; };
 		B78EA15D1BFA57F100BDC4D6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78EA15C1BFA57F100BDC4D6 /* MainViewController.swift */; };
 		B78EA1601BFA57F100BDC4D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B78EA15E1BFA57F100BDC4D6 /* Main.storyboard */; };
@@ -30,6 +32,8 @@
 		96ED3A241BFCE89B00199B7C /* LeftSpeechBubbleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSpeechBubbleTableViewCell.swift; sourceTree = "<group>"; };
 		96ED3A261BFCF6A900199B7C /* SpeechBubbleTableViewCell Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SpeechBubbleTableViewCell Protocol.swift"; sourceTree = "<group>"; };
 		96ED3A281BFD130A00199B7C /* QuestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
+		96ED3A2A1BFD148200199B7C /* LeftSpeechBubbleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftSpeechBubbleTableViewCell.xib; sourceTree = "<group>"; };
+		96ED3A2C1BFD149100199B7C /* RightSpeechBubbleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RightSpeechBubbleTableViewCell.xib; sourceTree = "<group>"; };
 		B78EA1571BFA57F100BDC4D6 /* GuyGirlTextAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuyGirlTextAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B78EA15A1BFA57F100BDC4D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B78EA15C1BFA57F100BDC4D6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -83,7 +87,9 @@
 				965433501BFA8E8B00F1E04F /* PersonCollectionViewCell.swift */,
 				96ED3A261BFCF6A900199B7C /* SpeechBubbleTableViewCell Protocol.swift */,
 				96ED3A241BFCE89B00199B7C /* LeftSpeechBubbleTableViewCell.swift */,
+				96ED3A2A1BFD148200199B7C /* LeftSpeechBubbleTableViewCell.xib */,
 				96C7913B1BFBBE0200C119F3 /* RightSpeechBubbleTableViewCell.swift */,
+				96ED3A2C1BFD149100199B7C /* RightSpeechBubbleTableViewCell.xib */,
 				B78EA15E1BFA57F100BDC4D6 /* Main.storyboard */,
 				B78EA1611BFA57F100BDC4D6 /* Assets.xcassets */,
 				B78EA1631BFA57F100BDC4D6 /* LaunchScreen.storyboard */,
@@ -159,6 +165,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96ED3A2B1BFD148200199B7C /* LeftSpeechBubbleTableViewCell.xib in Resources */,
+				96ED3A2D1BFD149100199B7C /* RightSpeechBubbleTableViewCell.xib in Resources */,
 				B78EA1651BFA57F100BDC4D6 /* LaunchScreen.storyboard in Resources */,
 				B78EA1621BFA57F100BDC4D6 /* Assets.xcassets in Resources */,
 				B78EA1601BFA57F100BDC4D6 /* Main.storyboard in Resources */,

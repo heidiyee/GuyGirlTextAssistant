@@ -37,6 +37,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
         
+        self.answersTableView.registerNib(UINib(nibName: LeftSpeechBubbleTableViewCell.identifier(), bundle: nil), forCellReuseIdentifier: LeftSpeechBubbleTableViewCell.identifier())
+        self.answersTableView.registerNib(UINib(nibName: RightSpeechBubbleTableViewCell.identifier(), bundle: nil), forCellReuseIdentifier: RightSpeechBubbleTableViewCell.identifier())
+        
 //        self.phraseElementsContainer.backgroundColor = UIColor.clearColor()
         
 //        let lightBlurView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Light))
@@ -92,6 +95,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let cell = self.answersTableView.dequeueReusableCellWithIdentifier(LeftSpeechBubbleTableViewCell.identifier()) as! LeftSpeechBubbleTableViewCell
+//        cell.configureWithColor(UIColor.whiteColor(), text: answers[indexPath.row], cornerRadius: self.cornerRadius)
+//        return cell
+        
         if indexPath.row == 0 {
             let cell = self.answersTableView.dequeueReusableCellWithIdentifier(LeftSpeechBubbleTableViewCell.identifier()) as! LeftSpeechBubbleTableViewCell
             cell.configureWithColor(UIColor.whiteColor(), text: answers[indexPath.row], cornerRadius: self.cornerRadius)
