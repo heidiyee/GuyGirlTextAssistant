@@ -41,11 +41,14 @@ class ParseService {
                 print(error.description)
                 completion(success: false, error: error)
             } else if let object = object {
-                object["answerString"] = answer
-                object["hasAsnwer"] = true
+                print("found object")
+                object.addObject(answer, forKey: "answers")
+                object["hasAnswer"] = true
                 object.incrementKey("answerCount", byAmount: 1)
                 object.saveInBackground()
+                completion(success: true, error: nil)
             }
         }
     }
+    
 }

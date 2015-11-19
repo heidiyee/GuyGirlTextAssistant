@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TJS-8S-TJh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TJS-8S-TJh">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -57,7 +57,7 @@
                             <constraint firstItem="u24-Zb-UEq" firstAttribute="top" secondItem="itn-yx-k1c" secondAttribute="bottom" id="sfa-q7-6cU"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Ask" id="FS5-Ow-aKa"/>
+                    <tabBarItem key="tabBarItem" title="Ask" image="0266-question" id="FS5-Ow-aKa"/>
                     <connections>
                         <outlet property="answersTableView" destination="itn-yx-k1c" id="JCA-G4-x0s"/>
                         <outlet property="phraseElementsContainer" destination="u24-Zb-UEq" id="YKM-ca-Pu4"/>
@@ -66,9 +66,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-38" y="924"/>
+            <point key="canvasLocation" x="-38" y="918"/>
         </scene>
-        <!--Questions View Controller-->
+        <!--Questions-->
         <scene sceneID="Qnh-3b-TDK">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="k5W-17-TcQ" customClass="QuestionsViewController" customModule="GuyGirlTextAssistant" customModuleProvider="target" sceneMemberID="viewController">
@@ -95,7 +95,7 @@
                             <constraint firstItem="c7D-0I-3IK" firstAttribute="top" secondItem="xkA-4H-Vms" secondAttribute="bottom" id="uaW-Bf-vhL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="OyT-uK-2IS"/>
+                    <navigationItem key="navigationItem" title="Questions" id="OyT-uK-2IS"/>
                     <connections>
                         <outlet property="questionTableView" destination="c7D-0I-3IK" id="jxd-dt-zXi"/>
                         <segue destination="fMc-Ab-akY" kind="show" identifier="AnswererViewController" id="hKf-QP-lLZ"/>
@@ -103,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YJV-IO-epk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1584" y="924"/>
+            <point key="canvasLocation" x="1584" y="918"/>
         </scene>
         <!--Answerer View Controller-->
         <scene sceneID="46z-oF-MPN">
@@ -120,14 +120,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DUL-U8-vGf">
                                 <rect key="frame" x="0.0" y="501" width="600" height="50"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F3w-JA-262">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="What would your response be?" borderStyle="roundedRect" placeholder="Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F3w-JA-262">
                                         <rect key="frame" x="8" y="10" width="584" height="30"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                         <connections>
-                                            <action selector="textFieldDidEndOnExit:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="dHy-UV-hag"/>
-                                            <action selector="textFieldEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="PPr-Fb-A5R"/>
+                                            <action selector="textFieldDidEndOnExit:" destination="fMc-Ab-akY" eventType="editingDidEndOnExit" id="2qD-PD-5ke"/>
                                         </connections>
                                     </textField>
                                 </subviews>
@@ -141,7 +140,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ho0-YO-Fhs">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="501"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="437"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
@@ -157,9 +156,11 @@
                             <constraint firstItem="F3w-JA-262" firstAttribute="top" secondItem="ho0-YO-Fhs" secondAttribute="bottom" constant="10" id="eQF-eq-C2G"/>
                             <constraint firstItem="gma-mo-Y8G" firstAttribute="top" secondItem="DUL-U8-vGf" secondAttribute="bottom" id="s5c-Oc-5Df"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ho0-YO-Fhs" secondAttribute="trailing" constant="-20" id="y1c-Ri-AVV"/>
+                            <constraint firstItem="ho0-YO-Fhs" firstAttribute="top" secondItem="JiP-CZ-ZLV" secondAttribute="bottom" id="z36-8w-X36"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="S0a-N8-YLH"/>
                                 <exclude reference="eQF-eq-C2G"/>
                             </mask>
                         </variation>
@@ -167,7 +168,7 @@
                     <connections>
                         <outlet property="answersTableView" destination="ho0-YO-Fhs" id="bhH-CG-Iev"/>
                         <outlet property="phraseElementsContainer" destination="DUL-U8-vGf" id="mzH-qJ-39N"/>
-                        <outlet property="phraseTextField" destination="F3w-JA-262" id="AM7-XK-gcp"/>
+                        <outlet property="phraseTextField" destination="F3w-JA-262" id="aWQ-y3-LiG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rWz-bd-cjs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -193,11 +194,11 @@
             </objects>
             <point key="canvasLocation" x="284" y="140"/>
         </scene>
-        <!--Answer-->
+        <!--Open Questions-->
         <scene sceneID="wDb-tq-DIO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hA9-sf-KyE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Answer" id="LiT-Qq-xLN"/>
+                    <tabBarItem key="tabBarItem" title="Open Questions" image="0109-bubbles" id="LiT-Qq-xLN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2Ln-8A-7CB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -211,7 +212,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CgU-g9-9kO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="772" y="924"/>
+            <point key="canvasLocation" x="770" y="918"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="0109-bubbles" width="18" height="16"/>
+        <image name="0266-question" width="16" height="16"/>
+    </resources>
 </document>
