@@ -69,22 +69,30 @@ class AnswererViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func keyboardWasShown(notification: NSNotification) {
         let info: [NSObject: AnyObject] = notification.userInfo!
-//        let tabBarHeight = self.tabBarController!.tabBar.frame.size.height
+        let tabBarHeight = self.tabBarController!.tabBar.frame.size.height
         let keyboardHeight = info[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size.height
 
-        var newFrame = self.view.frame.size
-        newFrame.height -= keyboardHeight
-        self.view.frame.size = newFrame
+        var newSize = self.view.frame.size
+        newSize.height -= keyboardHeight - tabBarHeight
+        
+        UIView.animateWithDuration(0.4) { () -> Void in
+            self.view.frame.size = newSize
+            self.view.layoutSubviews()
+        }
     }
     
     func keyboardWillBeHidden(notification: NSNotification) {
         let info: [NSObject: AnyObject] = notification.userInfo!
-//        let tabBarHeight = self.tabBarController!.tabBar.frame.size.height
+        let tabBarHeight = self.tabBarController!.tabBar.frame.size.height
         let keyboardHeight = info[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size.height
         
-        var newFrame = self.view.frame.size
-        newFrame.height += keyboardHeight
-        self.view.frame.size = newFrame
+        var newSize = self.view.frame.size
+        newSize.height += keyboardHeight - tabBarHeight
+        
+        UIView.animateWithDuration(0.4) { () -> Void in
+            self.view.frame.size = newSize
+            self.view.layoutSubviews()
+        }
     }
     
     // MARK: Text field actions
@@ -116,7 +124,7 @@ class AnswererViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        SpeechBubbleTableViewCellAnimator.animate(cell)
+        SpeechBubbleTableViewCellAnimator.animateCell(cell, withDelayMultiplier: indexPath.row)
         cell.backgroundColor = UIColor.clearColor()
         cell.selectionStyle = UITableViewCellSelectionStyle.None
     }

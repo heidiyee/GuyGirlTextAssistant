@@ -85,20 +85,17 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // MARK: Keyboard handling methods
     
-    func animate(newFrame: CGSize) {
-
-    }
-    
     func keyboardWasShown(notification: NSNotification) {
         let info: [NSObject: AnyObject] = notification.userInfo!
         let tabBarHeight = self.tabBarController!.tabBar.frame.size.height
         let keyboardHeight = info[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size.height
         
-        var newFrame = self.view.frame.size
-        newFrame.height -= keyboardHeight - tabBarHeight
-        
-        UIView.animateWithDuration(3) { () -> Void in
-            self.view.frame.size = newFrame
+        var newSize = self.view.frame.size
+        newSize.height -= keyboardHeight - tabBarHeight
+
+        UIView.animateWithDuration(0.4) { () -> Void in
+            self.view.frame.size = newSize
+            self.view.layoutSubviews()
         }
     }
     
@@ -107,9 +104,13 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let tabBarHeight = self.tabBarController!.tabBar.frame.size.height
         let keyboardHeight = info[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size.height
         
-        var newFrame = self.view.frame.size
-        newFrame.height += keyboardHeight - tabBarHeight
-        self.view.frame.size = newFrame
+        var newSize = self.view.frame.size
+        newSize.height += keyboardHeight - tabBarHeight
+        
+        UIView.animateWithDuration(0.4) { () -> Void in
+            self.view.frame.size = newSize
+            self.view.layoutSubviews()
+        }
     }
     
     // MARK: Text field actions
@@ -152,12 +153,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return answers.count
     }
-
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        SpeechBubbleTableViewCellAnimator.animate(cell)
-        cell.backgroundColor = UIColor.clearColor()
-        cell.selectionStyle = UITableViewCellSelectionStyle.None
-    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
@@ -170,6 +165,14 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
+    // MARK: Table view delegate
+
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        SpeechBubbleTableViewCellAnimator.animateCell(cell, withDelayMultiplier: indexPath.row)
+        cell.backgroundColor = UIColor.clearColor()
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
+    }
+
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         UIPasteboard.generalPasteboard().string = answers[indexPath.row]
     }

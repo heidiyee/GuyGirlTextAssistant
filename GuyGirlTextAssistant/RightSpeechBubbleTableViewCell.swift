@@ -14,6 +14,8 @@ class RightSpeechBubbleTableViewCell: UITableViewCell, SpeechBubbleTableViewCell
     @IBOutlet weak var speechTextLabel: UILabel!
     @IBOutlet weak var tail: UIView!
     
+    var highlightColor = UIColor(white: 0.4, alpha: 1.0)
+    
     class func identifier() -> String {
         return "RightSpeechBubbleTableViewCell"
     }
@@ -34,6 +36,18 @@ class RightSpeechBubbleTableViewCell: UITableViewCell, SpeechBubbleTableViewCell
             self.configureWithColor(kQColorSchemeRightSpeechBubbleColor, textColor: kQColorSchemeRightTextColor, text: text, cornerRadius: kSpeechBubbleCornerRadius)
         } else { // ColorScheme.A
             self.configureWithColor(kAColorSchemeRightSpeechBubbleColor, textColor: kAColorSchemeRightTextColor, text: text, cornerRadius: kSpeechBubbleCornerRadius)
+        }
+    }
+    
+    override func setHighlighted(highlighted: Bool, animated: Bool) {
+        if highlighted {
+            let originalColor = self.speechBubbleView.backgroundColor
+            self.speechBubbleView.backgroundColor = self.highlightColor
+            self.tail.backgroundColor = self.highlightColor
+            UIView.animateWithDuration(0.4) { () -> Void in
+                self.speechBubbleView.backgroundColor = originalColor
+                self.tail.backgroundColor = originalColor
+            }
         }
     }
 }
