@@ -34,6 +34,11 @@ class QuestionsViewController: UIViewController, UITableViewDataSource, UITableV
         getParseObjects()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        getParseObjects()
+    }
+    
     func getParseObjects() {
         ParseService.getParseData(kClassName) { (array, error) -> Void in
             if let error = error {
