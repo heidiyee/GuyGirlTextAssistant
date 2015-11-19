@@ -11,9 +11,13 @@ import Parse
 
 class AnswererViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var question: PFObject?
+    var question: PFObject!
     
-    var answers = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Donec a diam lectus.", "Sed sit amet ipsum mauris.", "Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit."]
+    var answers = [String]() {
+        didSet {
+            self.answersTableView.reloadData()
+        }
+    }
     
     @IBOutlet weak var answersTableView: UITableView!
     @IBOutlet weak var phraseTextField: UITextField!
@@ -41,18 +45,19 @@ class AnswererViewController: UIViewController, UITableViewDataSource, UITableVi
         self.answersTableView.registerNib(UINib(nibName: RightSpeechBubbleTableViewCell.identifier(), bundle: nil), forCellReuseIdentifier: RightSpeechBubbleTableViewCell.identifier())
         
         self.phraseElementsContainer.backgroundColor = UIColor.clearColor()
-        
-        //        let lightBlurView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Light))
-        //        lightBlurView.frame = self.phraseElementsContainer.bounds
-        //        self.phraseElementsContainer.backgroundColor = UIColor.clearColor()
-        //        self.phraseElementsContainer.insertSubview(lightBlurView, atIndex: 0)
-        // OR
-        //        self.phraseElementsContainer.backgroundColor = UIColor.whiteColor()
+        self.phraseElementsContainer.backgroundColor = UIColor.whiteColor()
+        getAnswers()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func getAnswers() {
+        if let array = question["answers"] as? [String] {
+            self.answers = array
+        }
     }
 
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
@@ -62,7 +67,7 @@ class AnswererViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: Text field actions
     
     @IBAction func textFieldDidEndOnExit(textField: UITextField) {
-        guard let parseObjectId =  question?.objectId else {return}
+        guard let parseObjectId =  question.objectId else {return}
         print(parseObjectId)
         if let phraseText = textField.text {
             ParseService.updateParseObjectAnswer(parseObjectId, answer: phraseText, completion: { (success, error) -> Void in
@@ -70,11 +75,11 @@ class AnswererViewController: UIViewController, UITableViewDataSource, UITableVi
                     print("error here \(error.description)")
                     return
                 }
-                print("Able to append answer to array")
+                self.getAnswers()
                 
             })
-            self.answers.append(phraseText)
-            self.answersTableView.reloadData()
+            //self.answers.append(phraseText)
+            //self.answersTableView.reloadData()
             //            let matchesInTextMessage = KeyWordFinder.searchForAllPatterns(phraseText)
             //            self.answers = AnswerRetriever.answersforText(matchesInTextMessage)
             //            self.answersTableView.reloadData()
@@ -84,7 +89,7 @@ class AnswererViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: Table view data source
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return answers.count
+        return answers.count + 1
     }
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -93,17 +98,13 @@ class AnswererViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //        let cell = self.answersTableView.dequeueReusableCellWithIdentifier(LeftSpeechBubbleTableViewCell.identifier()) as! LeftSpeechBubbleTableViewCell
-        //        cell.configureWithColor(UIColor.whiteColor(), text: answers[indexPath.row], cornerRadius: self.cornerRadius)
-        //        return cell
-        
         if indexPath.row == 0 {
             let cell = self.answersTableView.dequeueReusableCellWithIdentifier(LeftSpeechBubbleTableViewCell.identifier()) as! LeftSpeechBubbleTableViewCell
-            cell.configureWithColor(UIColor(white: 0.85, alpha: 1), text: answers[indexPath.row], cornerRadius: kSpeechBubbleCornerRadius)
+            cell.configureWithColor(UIColor(white: 0.85, alpha: 1), text: question["questionString"] as! String, cornerRadius: kSpeechBubbleCornerRadius)
             return cell
         }
         let cell = self.answersTableView.dequeueReusableCellWithIdentifier(RightSpeechBubbleTableViewCell.identifier()) as! RightSpeechBubbleTableViewCell
-        cell.configureWithColor(UIColor(white: 0.5, alpha: 1), text: answers[indexPath.row], cornerRadius: kSpeechBubbleCornerRadius)
+        cell.configureWithColor(UIColor(white: 0.5, alpha: 1), text: answers[indexPath.row - 1], cornerRadius: kSpeechBubbleCornerRadius)
         return cell
     }
 }

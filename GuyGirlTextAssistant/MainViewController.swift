@@ -11,13 +11,15 @@ import Parse
 
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIViewControllerTransitioningDelegate {
 
-    var answers = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Donec a diam lectus.", "Sed sit amet ipsum mauris.", "Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.", "Donec a diam lectus."]// [String]()
-    
-    var chatbotAnswer:Response? {
+    var answers = [String]() {
         didSet {
-            answersTableView.reloadData()
+            self.answersTableView.reloadData()
         }
     }
+    
+    //var question: String?
+    
+    var chatbotAnswer:Response? 
     
     let cornerRadius: CGFloat = 18
     
@@ -84,11 +86,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBAction func textFieldDidEndOnExit(textField: UITextField) {
         if let phraseText = textField.text {
+            self.answers.removeAll()
             ParseService.uploadObjectToQuestionClass(phraseText, completion: { (success, error) -> Void in
                 if let error = error {
                     print(error.description)
                 }
-                print("added to parse")
+                self.answers.append(phraseText)
             })
             //This function needs to get the text message from user as parameter
             ChatbotAPIService.update(phraseText) { (response) -> () in
