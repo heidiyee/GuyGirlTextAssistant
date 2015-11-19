@@ -98,23 +98,28 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func getAnswer() {
-        
+		var newArray = [String]()
+
         //This function needs to get the text message from user as parameter
-        ChatbotAPIService.update(self.answers[0]) { (response) -> () in
+		guard let text = phraseTextField.text else { return }
+		ChatbotAPIService.update(text) { (response) -> () in
             self.chatbotAnswer = response
+			
             if let chatbotAnswer = self.chatbotAnswer?.message {
-                self.answers.append((chatbotAnswer))
+                newArray.append((chatbotAnswer))
                 print("The chat bot message is:\(self.chatbotAnswer!.message)")
             }
+			let matchesInTextMessage = KeyWordFinder.searchForAllPatterns(text)
+			newArray += AnswerRetriever.answersforText(matchesInTextMessage, answersToChoose: StoredAnswers.taggedAnswers)
+			self.answers += newArray
+
         }
-//            let matchesInTextMessage = KeyWordFinder.searchForAllPatterns(phraseText)
-//            self.answers = AnswerRetriever.answersforText(matchesInTextMessage)
-//            self.answersTableView.reloadData()
-        
+		
+		//self.answersTableView.reloadData()
     }
     
     // MARK: Table view data source
-    
+	
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return answers.count
     }
