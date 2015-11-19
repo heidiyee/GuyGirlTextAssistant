@@ -11,13 +11,15 @@ import Parse
 
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIViewControllerTransitioningDelegate {
 
-    var answers = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Donec a diam lectus.", "Sed sit amet ipsum mauris.", "Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.", "Donec a diam lectus."]// [String]()
-    
-    var chatbotAnswer:Response? {
+    var answers = [String]() {
         didSet {
-            answersTableView.reloadData()
+            self.answersTableView.reloadData()
         }
     }
+    
+    //var question: String?
+    
+    var chatbotAnswer:Response? 
     
     let cornerRadius: CGFloat = 18
     
@@ -59,11 +61,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //        self.phraseElementsContainer.backgroundColor = UIColor.whiteColor()
         
         
-        let testObject = PFObject(className: "TestObject")
-        testObject["foo"] = "bar"
-        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-            print("Object has been saved.")
-        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -89,18 +86,31 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBAction func textFieldDidEndOnExit(textField: UITextField) {
         if let phraseText = textField.text {
-            //This function needs to get the text message from user as parameter
-            ChatbotAPIService.update(phraseText) { (response) -> () in
-                self.chatbotAnswer = response
-                if let chatbotAnswer = self.chatbotAnswer?.message {
-                    self.answers.append((chatbotAnswer))
-                    print("The chat bot message is:\(self.chatbotAnswer!.message)")
+            self.answers.removeAll()
+            ParseService.uploadObjectToQuestionClass(phraseText, completion: { (success, error) -> Void in
+                if let error = error {
+                    print(error.description)
                 }
+                self.answers.append(phraseText)
+                self.getAnswer()
+            })
+        }
+    }
+    
+    func getAnswer() {
+        
+        //This function needs to get the text message from user as parameter
+        ChatbotAPIService.update(self.answers[0]) { (response) -> () in
+            self.chatbotAnswer = response
+            if let chatbotAnswer = self.chatbotAnswer?.message {
+                self.answers.append((chatbotAnswer))
+                print("The chat bot message is:\(self.chatbotAnswer!.message)")
             }
+        }
 //            let matchesInTextMessage = KeyWordFinder.searchForAllPatterns(phraseText)
 //            self.answers = AnswerRetriever.answersforText(matchesInTextMessage)
 //            self.answersTableView.reloadData()
-        }
+        
     }
     
     // MARK: Table view data source
