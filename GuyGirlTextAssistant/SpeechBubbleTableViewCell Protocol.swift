@@ -18,10 +18,15 @@ protocol SpeechBubbleTableViewCell {
 
 extension SpeechBubbleTableViewCell {
  
-    func configureWithColor(color: UIColor, text: String, cornerRadius: CGFloat) {
+    func configureWithColor(color: UIColor, textColor: UIColor, text: String, cornerRadius: CGFloat) {
         self.speechBubbleView.layer.cornerRadius = cornerRadius
         self.speechBubbleView.backgroundColor = color
         self.tail.backgroundColor = color
-        self.speechTextLabel.text = text
+        self.speechTextLabel.textColor = textColor
+        if text == "" || text == " " || text == "  " {
+            self.speechTextLabel.text = "   "
+        } else {
+            self.speechTextLabel.text = text
+        }
     }
 }

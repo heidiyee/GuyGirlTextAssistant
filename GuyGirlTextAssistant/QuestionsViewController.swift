@@ -29,6 +29,11 @@ class QuestionsViewController: UIViewController, UITableViewDataSource, UITableV
         self.questionTableView.dataSource = self
         self.questionTableView.delegate = self
         
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = kAColorSchemeBackgroundGradientCGColorArray
+        gradientLayer.frame = self.view.bounds
+        self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
+        
         self.questionTableView.registerNib(UINib(nibName: LeftSpeechBubbleTableViewCell.identifier(), bundle: nil), forCellReuseIdentifier: LeftSpeechBubbleTableViewCell.identifier())
         
         getParseObjects()
@@ -57,9 +62,16 @@ class QuestionsViewController: UIViewController, UITableViewDataSource, UITableV
     
     // MARK: Table view data source
 
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        SpeechBubbleTableViewCellAnimator.animateCell(cell, withDelayConstant: 0.005, multiplier: indexPath.row)
+        cell.backgroundColor = UIColor.clearColor()
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = questionTableView.dequeueReusableCellWithIdentifier(LeftSpeechBubbleTableViewCell.identifier(), forIndexPath: indexPath) as! LeftSpeechBubbleTableViewCell
-        cell.configureWithColor(UIColor.blueColor(), text: self.questions[indexPath.row]["questionString"] as! String, cornerRadius: kSpeechBubbleCornerRadius)
+        cell.configureWithColorScheme(ColorScheme.A, text: self.questions[indexPath.row]["questionString"] as! String)
+
         return cell
     }
     

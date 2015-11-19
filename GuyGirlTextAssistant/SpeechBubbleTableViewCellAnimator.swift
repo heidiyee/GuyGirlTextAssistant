@@ -8,16 +8,17 @@
 
 import UIKit
 
-// From a Ray Wenderlich tutorial:
-// http://www.raywenderlich.com/76024/swift-table-view-animations-tutorial-drop-cards
-
 class SpeechBubbleTableViewCellAnimator {
     
-    class func animate(cell: UITableViewCell) {
+    // From a Ray Wenderlich tutorial:
+    // http://www.raywenderlich.com/76024/swift-table-view-animations-tutorial-drop-cards
+    // and Adam
+    class func animateCell(cell: UITableViewCell, withDelayConstant constant: Double, multiplier: Int) {
         let view = cell.contentView
-        view.layer.opacity = 0.1
-        UIView.animateWithDuration(1.4) { () -> Void in
+        view.layer.opacity = 0
+        UIView.animateWithDuration(0.4, delay: constant * Double(multiplier), options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
             view.layer.opacity = 1
-        }
+            }, completion: { (finished) -> Void in
+        })
     }
 }

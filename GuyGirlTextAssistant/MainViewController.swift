@@ -21,11 +21,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var chatbotAnswer:Response? 
     
-    let cornerRadius: CGFloat = 18
-    
     @IBOutlet weak var phraseTextField: UITextField!
     @IBOutlet weak var answersTableView: UITableView!
     @IBOutlet weak var phraseElementsContainer: UIView!
+    @IBOutlet weak var instructionMessageLabel: UILabel!
     
     class func identifier() -> String {
         return "MainViewController"
@@ -39,28 +38,24 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.answersTableView.estimatedRowHeight = 44
         self.answersTableView.rowHeight = UITableViewAutomaticDimension
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillBeHidden:", name: UIKeyboardWillHideNotification, object: nil)
+        
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor(white: 0.9, alpha: 1.0).CGColor, UIColor.whiteColor().CGColor]
-//        gradientLayer.colors = [UIColor(white: 0.3, alpha: 1.0).CGColor, UIColor(white: 0.2, alpha: 1.0).CGColor]
+        gradientLayer.colors = kQColorSchemeBackgroundGradientCGColorArray
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
         
         self.answersTableView.registerNib(UINib(nibName: LeftSpeechBubbleTableViewCell.identifier(), bundle: nil), forCellReuseIdentifier: LeftSpeechBubbleTableViewCell.identifier())
         self.answersTableView.registerNib(UINib(nibName: RightSpeechBubbleTableViewCell.identifier(), bundle: nil), forCellReuseIdentifier: RightSpeechBubbleTableViewCell.identifier())
+        self.answersTableView.registerNib(UINib(nibName: StatusTableViewCell.identifier(), bundle: nil), forCellReuseIdentifier: StatusTableViewCell.identifier())
 
-        
-//        self.phraseElementsContainer.backgroundColor = UIColor.clearColor()
-        
         self.phraseElementsContainer.backgroundColor = UIColor.clearColor()
 
 //        let lightBlurView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Light))
 //        lightBlurView.frame = self.phraseElementsContainer.bounds
 //        self.phraseElementsContainer.backgroundColor = UIColor.clearColor()
 //        self.phraseElementsContainer.insertSubview(lightBlurView, atIndex: 0)
-        // OR
-//        self.phraseElementsContainer.backgroundColor = UIColor.whiteColor()
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -82,7 +77,47 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return CustomTransition(duration: 2.0)
     }
     
+    func fadeOutInstructionMessage() {
+        UIView.animateWithDuration(1.0) { () -> Void in
+            self.instructionMessageLabel.alpha = 0
+        }
+    }
+    
+    // MARK: Keyboard handling methods
+    
+    func keyboardWasShown(notification: NSNotification) {
+        let info: [NSObject: AnyObject] = notification.userInfo!
+        let tabBarHeight = self.tabBarController!.tabBar.frame.size.height
+        let keyboardHeight = info[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size.height
+        
+        var newSize = self.view.frame.size
+        newSize.height -= keyboardHeight - tabBarHeight
+
+        UIView.animateWithDuration(0.4) { () -> Void in
+            self.view.frame.size = newSize
+            self.view.layoutSubviews()
+        }
+    }
+    
+    func keyboardWillBeHidden(notification: NSNotification) {
+        let info: [NSObject: AnyObject] = notification.userInfo!
+        let tabBarHeight = self.tabBarController!.tabBar.frame.size.height
+        let keyboardHeight = info[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size.height
+        
+        var newSize = self.view.frame.size
+        newSize.height += keyboardHeight - tabBarHeight
+        
+        UIView.animateWithDuration(0.4) { () -> Void in
+            self.view.frame.size = newSize
+            self.view.layoutSubviews()
+        }
+    }
+    
     // MARK: Text field actions
+    
+    @IBAction func textFieldEditingDidBegin(sender: UITextField) {
+        self.fadeOutInstructionMessage()
+    }
     
     @IBAction func textFieldDidEndOnExit(textField: UITextField) {
         if let phraseText = textField.text {
@@ -119,29 +154,32 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     // MARK: Table view data source
-	
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return answers.count
     }
-
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        SpeechBubbleTableViewCellAnimator.animate(cell)
-        cell.backgroundColor = UIColor.clearColor()
-    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = self.answersTableView.dequeueReusableCellWithIdentifier(LeftSpeechBubbleTableViewCell.identifier()) as! LeftSpeechBubbleTableViewCell
-//        cell.configureWithColor(UIColor.whiteColor(), text: answers[indexPath.row], cornerRadius: self.cornerRadius)
-//        return cell
-        
         if indexPath.row == 0 {
             let cell = self.answersTableView.dequeueReusableCellWithIdentifier(LeftSpeechBubbleTableViewCell.identifier()) as! LeftSpeechBubbleTableViewCell
-            cell.configureWithColor(UIColor(white: 0.85, alpha: 1), text: answers[indexPath.row], cornerRadius: kSpeechBubbleCornerRadius)
+            cell.configureWithColorScheme(ColorScheme.Q, text: self.answers[indexPath.row])
             return cell
         }
         let cell = self.answersTableView.dequeueReusableCellWithIdentifier(RightSpeechBubbleTableViewCell.identifier()) as! RightSpeechBubbleTableViewCell
-        cell.configureWithColor(UIColor(white: 0.5, alpha: 1), text: answers[indexPath.row], cornerRadius: kSpeechBubbleCornerRadius)
+        cell.configureWithColorScheme(ColorScheme.Q, text: self.answers[indexPath.row])
         return cell
+    }
+    
+    // MARK: Table view delegate
+
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        SpeechBubbleTableViewCellAnimator.animateCell(cell, withDelayConstant: 0.1, multiplier: indexPath.row)
+        cell.backgroundColor = UIColor.clearColor()
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
+    }
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        UIPasteboard.generalPasteboard().string = answers[indexPath.row]
     }
 }
 

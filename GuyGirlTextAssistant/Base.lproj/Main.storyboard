@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TJS-8S-TJh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TJS-8S-TJh">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -18,6 +18,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send us your text!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbs-Lc-OfL">
+                                <rect key="frame" x="20" y="224" width="560" height="33"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="itn-yx-k1c">
+                                <rect key="frame" x="0.0" y="28" width="600" height="473"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="481" id="rF2-Fj-aNs"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="rF2-Fj-aNs"/>
+                                    </mask>
+                                </variation>
+                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u24-Zb-UEq">
                                 <rect key="frame" x="0.0" y="501" width="600" height="50"/>
                                 <subviews>
@@ -28,6 +48,7 @@
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                         <connections>
                                             <action selector="textFieldDidEndOnExit:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="ygc-65-7eS"/>
+                                            <action selector="textFieldEditingDidBegin:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="llq-B7-dmc"/>
                                         </connections>
                                     </textField>
                                 </subviews>
@@ -40,7 +61,7 @@
                                     <constraint firstAttribute="bottom" secondItem="Kye-MM-IyF" secondAttribute="bottom" constant="10" id="Ub3-m7-Trn"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="itn-yx-k1c">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="itn-xx-k1c">
                                 <rect key="frame" x="0.0" y="20" width="600" height="481"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -57,7 +78,7 @@
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Jv-wY-jKD">
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Jv-wY-jKD">
                                                     <rect key="frame" x="560" y="4" width="32" height="36"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryc-yP-XXU">
@@ -163,18 +184,31 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="itn-yx-k1c" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="6X6-fX-dlx"/>
-                            <constraint firstAttribute="trailing" secondItem="itn-yx-k1c" secondAttribute="trailing" id="KOD-Xt-jiN"/>
-                            <constraint firstItem="itn-yx-k1c" firstAttribute="leading" secondItem="u24-Zb-UEq" secondAttribute="leading" id="LUl-TU-o7f"/>
-                            <constraint firstItem="u24-Zb-UEq" firstAttribute="trailing" secondItem="itn-yx-k1c" secondAttribute="trailing" id="cLP-lU-apj"/>
-                            <constraint firstItem="u24-Zb-UEq" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="iZl-oa-Owz"/>
-                            <constraint firstItem="itn-yx-k1c" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lDa-W8-sBU"/>
-                            <constraint firstItem="u24-Zb-UEq" firstAttribute="top" secondItem="itn-yx-k1c" secondAttribute="bottom" id="sfa-q7-6cU"/>
+                            <constraint firstAttribute="trailing" secondItem="u24-Zb-UEq" secondAttribute="trailing" id="2nN-GP-xqt"/>
+                            <constraint firstItem="jbs-Lc-OfL" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="4yg-Zf-Slr"/>
+                            <constraint firstItem="itn-yx-k1c" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="28" id="5D5-Vs-WFQ"/>
+                            <constraint firstItem="jbs-Lc-OfL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Aik-XP-Nfn"/>
+                            <constraint firstItem="itn-yx-k1c" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Gdi-dE-xLB"/>
+                            <constraint firstItem="u24-Zb-UEq" firstAttribute="top" secondItem="itn-yx-k1c" secondAttribute="bottom" id="OEY-1B-oS6"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="u24-Zb-UEq" secondAttribute="bottom" constant="49" id="TSZ-7Q-qvv"/>
+                            <constraint firstItem="u24-Zb-UEq" firstAttribute="top" secondItem="itn-yx-k1c" secondAttribute="bottom" id="ZF3-fY-YhC"/>
+                            <constraint firstItem="jbs-Lc-OfL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZVc-eT-fWp"/>
+                            <constraint firstItem="jbs-Lc-OfL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.8" id="aub-0E-Ivc"/>
+                            <constraint firstItem="u24-Zb-UEq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gs0-0Z-zA8"/>
+                            <constraint firstItem="jbs-Lc-OfL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="j6l-iL-1in"/>
+                            <constraint firstAttribute="trailing" secondItem="itn-yx-k1c" secondAttribute="trailing" id="vZO-Vz-FqX"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ZVc-eT-fWp"/>
+                                <exclude reference="ZF3-fY-YhC"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Ask" image="0266-question" id="FS5-Ow-aKa"/>
                     <connections>
                         <outlet property="answersTableView" destination="itn-yx-k1c" id="JCA-G4-x0s"/>
+                        <outlet property="instructionMessageLabel" destination="jbs-Lc-OfL" id="K59-mm-FfS"/>
                         <outlet property="phraseElementsContainer" destination="u24-Zb-UEq" id="YKM-ca-Pu4"/>
                         <outlet property="phraseTextField" destination="Kye-MM-IyF" id="3gK-Wh-jMN"/>
                     </connections>
@@ -195,10 +229,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c7D-0I-3IK">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c7D-0I-3IK">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <animations/>
@@ -235,7 +269,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DUL-U8-vGf">
                                 <rect key="frame" x="0.0" y="501" width="600" height="50"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="What would your response be?" borderStyle="roundedRect" placeholder="Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F3w-JA-262">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F3w-JA-262">
                                         <rect key="frame" x="8" y="10" width="584" height="30"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -254,10 +288,10 @@
                                     <constraint firstItem="F3w-JA-262" firstAttribute="top" secondItem="DUL-U8-vGf" secondAttribute="top" constant="10" id="nIY-Vi-9O0"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ho0-YO-Fhs">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ho0-YO-Fhs">
                                 <rect key="frame" x="0.0" y="64" width="600" height="437"/>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <animations/>
