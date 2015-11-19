@@ -35,6 +35,9 @@ class AnswererViewController: UIViewController, UITableViewDataSource, UITableVi
         self.answersTableView.estimatedRowHeight = 44
         self.answersTableView.rowHeight = UITableViewAutomaticDimension
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillBeHidden:", name: UIKeyboardWillHideNotification, object: nil)
+        
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = kAColorSchemeBackgroundGradientCGColorArray
         gradientLayer.frame = self.view.bounds
@@ -60,6 +63,28 @@ class AnswererViewController: UIViewController, UITableViewDataSource, UITableVi
 
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return CustomTransition(duration: 2.0)
+    }
+    
+    // MARK: Keyboard handling methods
+    
+    func keyboardWasShown(notification: NSNotification) {
+        let info: [NSObject: AnyObject] = notification.userInfo!
+//        let tabBarHeight = self.tabBarController!.tabBar.frame.size.height
+        let keyboardHeight = info[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size.height
+
+        var newFrame = self.view.frame.size
+        newFrame.height -= keyboardHeight
+        self.view.frame.size = newFrame
+    }
+    
+    func keyboardWillBeHidden(notification: NSNotification) {
+        let info: [NSObject: AnyObject] = notification.userInfo!
+//        let tabBarHeight = self.tabBarController!.tabBar.frame.size.height
+        let keyboardHeight = info[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size.height
+        
+        var newFrame = self.view.frame.size
+        newFrame.height += keyboardHeight
+        self.view.frame.size = newFrame
     }
     
     // MARK: Text field actions

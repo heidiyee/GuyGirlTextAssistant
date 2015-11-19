@@ -38,6 +38,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.answersTableView.estimatedRowHeight = 44
         self.answersTableView.rowHeight = UITableViewAutomaticDimension
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillBeHidden:", name: UIKeyboardWillHideNotification, object: nil)
+        
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = kQColorSchemeBackgroundGradientCGColorArray
         gradientLayer.frame = self.view.bounds
@@ -78,6 +81,35 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         UIView.animateWithDuration(1.0) { () -> Void in
             self.instructionMessageLabel.alpha = 0
         }
+    }
+    
+    // MARK: Keyboard handling methods
+    
+    func animate(newFrame: CGSize) {
+
+    }
+    
+    func keyboardWasShown(notification: NSNotification) {
+        let info: [NSObject: AnyObject] = notification.userInfo!
+        let tabBarHeight = self.tabBarController!.tabBar.frame.size.height
+        let keyboardHeight = info[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size.height
+        
+        var newFrame = self.view.frame.size
+        newFrame.height -= keyboardHeight - tabBarHeight
+        
+        UIView.animateWithDuration(3) { () -> Void in
+            self.view.frame.size = newFrame
+        }
+    }
+    
+    func keyboardWillBeHidden(notification: NSNotification) {
+        let info: [NSObject: AnyObject] = notification.userInfo!
+        let tabBarHeight = self.tabBarController!.tabBar.frame.size.height
+        let keyboardHeight = info[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size.height
+        
+        var newFrame = self.view.frame.size
+        newFrame.height += keyboardHeight - tabBarHeight
+        self.view.frame.size = newFrame
     }
     
     // MARK: Text field actions
