@@ -20,7 +20,7 @@ struct AnswersWithTag {
 	var tag: String
 	var tagTwo: String
 	var suggestedAnswers: [String]
-	static let cannedAnswers = ["It's so nice to hear from you", "Thank you!", "Awesome!", "Hey, Hi!", "You too", "That sounds great", "Right back at you", "Sorry, I'm super busy right now"]
+	static let cannedAnswers = ["not feeling it today", "can we talk tomorrow", "I got to go", "", "...", "can I call you", "Sorry, I'm super busy right now"]
 	
 	
 }
