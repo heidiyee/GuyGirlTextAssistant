@@ -11,7 +11,7 @@ import Parse
 
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIViewControllerTransitioningDelegate {
 
-    var answers = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Donec a diam lectus.", "Sed sit amet ipsum mauris.", "Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.", "Donec a diam lectus."]// [String]()
+    var answers = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Donec a diam lectus.", "Sed sit amet ipsum mauris.", "Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.", "Donec a diam lectus.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Donec a diam lectus.", "Sed sit amet ipsum mauris.", "Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.", "Donec a diam lectus."]// [String]()
     
     var chatbotAnswer:Response? {
         didSet {
@@ -44,6 +44,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         self.answersTableView.registerNib(UINib(nibName: LeftSpeechBubbleTableViewCell.identifier(), bundle: nil), forCellReuseIdentifier: LeftSpeechBubbleTableViewCell.identifier())
         self.answersTableView.registerNib(UINib(nibName: RightSpeechBubbleTableViewCell.identifier(), bundle: nil), forCellReuseIdentifier: RightSpeechBubbleTableViewCell.identifier())
+        self.answersTableView.registerNib(UINib(nibName: StatusTableViewCell.identifier(), bundle: nil), forCellReuseIdentifier: StatusTableViewCell.identifier())
 
         
 //        self.phraseElementsContainer.backgroundColor = UIColor.clearColor()
@@ -103,7 +104,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     // MARK: Table view data source
-    
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return answers.count
     }
@@ -114,13 +115,14 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = self.answersTableView.dequeueReusableCellWithIdentifier(LeftSpeechBubbleTableViewCell.identifier()) as! LeftSpeechBubbleTableViewCell
-//        cell.configureWithColor(UIColor.whiteColor(), text: answers[indexPath.row], cornerRadius: self.cornerRadius)
-//        return cell
-        
         if indexPath.row == 0 {
             let cell = self.answersTableView.dequeueReusableCellWithIdentifier(LeftSpeechBubbleTableViewCell.identifier()) as! LeftSpeechBubbleTableViewCell
             cell.configureWithColor(UIColor(white: 0.85, alpha: 1), text: answers[indexPath.row], cornerRadius: kSpeechBubbleCornerRadius)
+            return cell
+        }
+        if indexPath.row % 2 == 0 {
+            let cell = self.answersTableView.dequeueReusableCellWithIdentifier(StatusTableViewCell.identifier()) as! StatusTableViewCell
+                cell.statusLabel.text = "Status Text FTW!"
             return cell
         }
         let cell = self.answersTableView.dequeueReusableCellWithIdentifier(RightSpeechBubbleTableViewCell.identifier()) as! RightSpeechBubbleTableViewCell

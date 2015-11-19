@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		963DAADD1BFD5F290008AD7D /* StatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963DAADC1BFD5F290008AD7D /* StatusTableViewCell.xib */; };
+		963DAAE11BFD61040008AD7D /* StatusTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963DAAE01BFD61040008AD7D /* StatusTextTableViewCell.swift */; };
 		965433511BFA8E8B00F1E04F /* PersonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965433501BFA8E8B00F1E04F /* PersonCollectionViewCell.swift */; };
 		96C7913C1BFBBE0200C119F3 /* RightSpeechBubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C7913B1BFBBE0200C119F3 /* RightSpeechBubbleTableViewCell.swift */; };
 		96ED3A251BFCE89B00199B7C /* LeftSpeechBubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED3A241BFCE89B00199B7C /* LeftSpeechBubbleTableViewCell.swift */; };
@@ -44,15 +46,17 @@
 		B7E4CB431BFD244B00A3E9CA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E4CB421BFD244B00A3E9CA /* Constants.swift */; };
 		B7E4CB451BFD24A600A3E9CA /* ParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E4CB441BFD24A600A3E9CA /* ParseService.swift */; };
 		B7E4CB471BFD24B100A3E9CA /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E4CB461BFD24B100A3E9CA /* QuestionTableViewCell.swift */; };
-		BF6C4B051BFD36D000A9BAC6 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C4B021BFD36D000A9BAC6 /* Response.swift */; settings = {ASSET_TAGS = (); }; };
-		BF6C4B061BFD36D000A9BAC6 /* ChatbotAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C4B031BFD36D000A9BAC6 /* ChatbotAPIService.swift */; settings = {ASSET_TAGS = (); }; };
-		BF6C4B071BFD36D000A9BAC6 /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C4B041BFD36D000A9BAC6 /* ApiConstants.swift */; settings = {ASSET_TAGS = (); }; };
+		BF6C4B051BFD36D000A9BAC6 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C4B021BFD36D000A9BAC6 /* Response.swift */; };
+		BF6C4B061BFD36D000A9BAC6 /* ChatbotAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C4B031BFD36D000A9BAC6 /* ChatbotAPIService.swift */; };
+		BF6C4B071BFD36D000A9BAC6 /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C4B041BFD36D000A9BAC6 /* ApiConstants.swift */; };
 		BFE471B01BFBEC58004C98A5 /* AnswerRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE471AF1BFBEC58004C98A5 /* AnswerRetriever.swift */; };
 		BFE471B21BFBEC63004C98A5 /* KeyWordFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE471B11BFBEC63004C98A5 /* KeyWordFinder.swift */; };
 		BFE471B41BFBEC6F004C98A5 /* Patterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE471B31BFBEC6F004C98A5 /* Patterns.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		963DAADC1BFD5F290008AD7D /* StatusTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusTableViewCell.xib; sourceTree = "<group>"; };
+		963DAAE01BFD61040008AD7D /* StatusTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusTextTableViewCell.swift; path = ../StatusTextTableViewCell.swift; sourceTree = "<group>"; };
 		965433501BFA8E8B00F1E04F /* PersonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonCollectionViewCell.swift; sourceTree = "<group>"; };
 		96C7913B1BFBBE0200C119F3 /* RightSpeechBubbleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightSpeechBubbleTableViewCell.swift; sourceTree = "<group>"; };
 		96ED3A241BFCE89B00199B7C /* LeftSpeechBubbleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSpeechBubbleTableViewCell.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 				96ED3A261BFCF6A900199B7C /* SpeechBubbleTableViewCell Protocol.swift */,
 				96ED3A241BFCE89B00199B7C /* LeftSpeechBubbleTableViewCell.swift */,
 				96C7913B1BFBBE0200C119F3 /* RightSpeechBubbleTableViewCell.swift */,
+				963DAAE01BFD61040008AD7D /* StatusTextTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				96ED3A2A1BFD148200199B7C /* LeftSpeechBubbleTableViewCell.xib */,
+				963DAADC1BFD5F290008AD7D /* StatusTableViewCell.xib */,
 				96ED3A2C1BFD149100199B7C /* RightSpeechBubbleTableViewCell.xib */,
 			);
 			name = Xibs;
@@ -322,6 +328,7 @@
 				B78EA1651BFA57F100BDC4D6 /* LaunchScreen.storyboard in Resources */,
 				B78EA1621BFA57F100BDC4D6 /* Assets.xcassets in Resources */,
 				B78EA1601BFA57F100BDC4D6 /* Main.storyboard in Resources */,
+				963DAADD1BFD5F290008AD7D /* StatusTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +347,7 @@
 				96ED3A331BFD2F3A00199B7C /* AnswererViewController.swift in Sources */,
 				96ED3A2F1BFD25D400199B7C /* SpeechBubbleTableViewCellAnimator.swift in Sources */,
 				B7E4CB061BFA8FA700A3E9CA /* CustomTransition.swift in Sources */,
+				963DAAE11BFD61040008AD7D /* StatusTextTableViewCell.swift in Sources */,
 				B7E4CB471BFD24B100A3E9CA /* QuestionTableViewCell.swift in Sources */,
 				BFE471B21BFBEC63004C98A5 /* KeyWordFinder.swift in Sources */,
 				BF6C4B051BFD36D000A9BAC6 /* Response.swift in Sources */,
