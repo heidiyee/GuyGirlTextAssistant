@@ -36,14 +36,14 @@ class AnswererViewController: UIViewController, UITableViewDataSource, UITableVi
         self.answersTableView.rowHeight = UITableViewAutomaticDimension
         
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = kAnswerBackgroundGradientCGColorArray
+        gradientLayer.colors = kAColorSchemeBackgroundGradientCGColorArray
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
         
         self.answersTableView.registerNib(UINib(nibName: LeftSpeechBubbleTableViewCell.identifier(), bundle: nil), forCellReuseIdentifier: LeftSpeechBubbleTableViewCell.identifier())
         self.answersTableView.registerNib(UINib(nibName: RightSpeechBubbleTableViewCell.identifier(), bundle: nil), forCellReuseIdentifier: RightSpeechBubbleTableViewCell.identifier())
         
-        self.phraseElementsContainer.backgroundColor = kAnswerBackgroundGradientBottomColor
+        self.phraseElementsContainer.backgroundColor = kAColorSchemeBackgroundGradientBottomColor
         getAnswers()
     }
     
@@ -99,11 +99,11 @@ class AnswererViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = self.answersTableView.dequeueReusableCellWithIdentifier(LeftSpeechBubbleTableViewCell.identifier()) as! LeftSpeechBubbleTableViewCell
-            cell.configureWithColor(kAnswerLeftSpeechBubbleColor, textColor: kAnswerLeftTextColor, text: question["questionString"] as! String, cornerRadius: kSpeechBubbleCornerRadius)
+            cell.configureWithColorScheme(ColorScheme.A, text: question["questionString"] as! String)
             return cell
         }
         let cell = self.answersTableView.dequeueReusableCellWithIdentifier(RightSpeechBubbleTableViewCell.identifier()) as! RightSpeechBubbleTableViewCell
-        cell.configureWithColor(kAnswerRightSpeechBubbleColor, textColor: kAnswerRightTextColor, text: answers[indexPath.row - 1], cornerRadius: kSpeechBubbleCornerRadius)
+        cell.configureWithColorScheme(ColorScheme.A, text: answers[indexPath.row - 1])
         return cell
     }
 }

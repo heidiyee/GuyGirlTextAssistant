@@ -29,4 +29,11 @@ class RightSpeechBubbleTableViewCell: UITableViewCell, SpeechBubbleTableViewCell
         // Configure the view for the selected state
     }
 
+    func configureWithColorScheme(colorScheme: ColorScheme, text: String) {
+        if colorScheme == ColorScheme.Q {
+            self.configureWithColor(kQColorSchemeRightSpeechBubbleColor, textColor: kQColorSchemeRightTextColor, text: text, cornerRadius: kSpeechBubbleCornerRadius)
+        } else { // ColorScheme.A
+            self.configureWithColor(kAColorSchemeRightSpeechBubbleColor, textColor: kAColorSchemeRightTextColor, text: text, cornerRadius: kSpeechBubbleCornerRadius)
+        }
+    }
 }

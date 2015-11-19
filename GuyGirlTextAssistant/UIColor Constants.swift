@@ -8,22 +8,26 @@
 
 import UIKit
 
-let kQuestionBackgroundGradientCGColorArray = [kQuestionBackgroundGradientTopColor.CGColor, kQuestionBackgroundGradientBottomColor.CGColor]
-let kQuestionBackgroundGradientTopColor = UIColor(white: 0.9, alpha: 1.0)
-let kQuestionBackgroundGradientBottomColor = UIColor.whiteColor()
+enum ColorScheme {
+    case Q, A
+}
 
-let kQuestionLeftSpeechBubbleColor = UIColor(white: 0.85, alpha: 1.0)
-let kQuestionLeftTextColor = UIColor.blackColor()
+let kQColorSchemeBackgroundGradientCGColorArray = [kQColorSchemeBackgroundGradientTopColor.CGColor, kQColorSchemeBackgroundGradientBottomColor.CGColor]
+let kQColorSchemeBackgroundGradientTopColor = UIColor(white: 0.9, alpha: 1.0)
+let kQColorSchemeBackgroundGradientBottomColor = UIColor.whiteColor()
 
-let kQuestionRightSpeechBubbleColor = UIColor(white: 0.5, alpha: 1.0)
-let kQuestionRightTextColor = UIColor.whiteColor()
+let kQColorSchemeLeftSpeechBubbleColor = UIColor(white: 0.85, alpha: 1.0)
+let kQColorSchemeLeftTextColor = UIColor.blackColor()
 
-let kAnswerBackgroundGradientCGColorArray = [kAnswerBackgroundGradientTopColor.CGColor, kAnswerBackgroundGradientBottomColor.CGColor]
-let kAnswerBackgroundGradientTopColor = UIColor(white: 0.2, alpha: 1.0)
-let kAnswerBackgroundGradientBottomColor = UIColor(white: 0.3, alpha: 1.0)
+let kQColorSchemeRightSpeechBubbleColor = UIColor(white: 0.5, alpha: 1.0)
+let kQColorSchemeRightTextColor = UIColor.whiteColor()
 
-let kAnswerLeftSpeechBubbleColor = UIColor(white: 0.15, alpha: 1.0)
-let kAnswerLeftTextColor = UIColor.whiteColor()
+let kAColorSchemeBackgroundGradientCGColorArray = [kAColorSchemeBackgroundGradientTopColor.CGColor, kAColorSchemeBackgroundGradientBottomColor.CGColor]
+let kAColorSchemeBackgroundGradientTopColor = UIColor(white: 0.2, alpha: 1.0)
+let kAColorSchemeBackgroundGradientBottomColor = UIColor(white: 0.3, alpha: 1.0)
 
-let kAnswerRightSpeechBubbleColor = UIColor(white: 0.85, alpha: 1.0)
-let kAnswerRightTextColor = UIColor.blackColor()
+let kAColorSchemeLeftSpeechBubbleColor = UIColor(white: 0.15, alpha: 1.0)
+let kAColorSchemeLeftTextColor = UIColor.whiteColor()
+
+let kAColorSchemeRightSpeechBubbleColor = UIColor(white: 0.85, alpha: 1.0)
+let kAColorSchemeRightTextColor = UIColor.blackColor()

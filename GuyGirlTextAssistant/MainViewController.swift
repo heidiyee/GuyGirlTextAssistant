@@ -39,7 +39,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.answersTableView.rowHeight = UITableViewAutomaticDimension
         
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = kQuestionBackgroundGradientCGColorArray
+        gradientLayer.colors = kQColorSchemeBackgroundGradientCGColorArray
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
         
@@ -130,11 +130,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = self.answersTableView.dequeueReusableCellWithIdentifier(LeftSpeechBubbleTableViewCell.identifier()) as! LeftSpeechBubbleTableViewCell
-            cell.configureWithColor(kQuestionLeftSpeechBubbleColor, textColor: kQuestionLeftTextColor, text: answers[indexPath.row], cornerRadius: kSpeechBubbleCornerRadius)
+            cell.configureWithColorScheme(ColorScheme.Q, text: self.answers[indexPath.row])
             return cell
         }
         let cell = self.answersTableView.dequeueReusableCellWithIdentifier(RightSpeechBubbleTableViewCell.identifier()) as! RightSpeechBubbleTableViewCell
-        cell.configureWithColor(kQuestionRightSpeechBubbleColor, textColor: kQuestionRightTextColor, text: answers[indexPath.row], cornerRadius: kSpeechBubbleCornerRadius)
+        cell.configureWithColorScheme(ColorScheme.Q, text: self.answers[indexPath.row])
         return cell
     }
     

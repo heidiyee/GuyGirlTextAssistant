@@ -30,7 +30,7 @@ class QuestionsViewController: UIViewController, UITableViewDataSource, UITableV
         self.questionTableView.delegate = self
         
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = kAnswerBackgroundGradientCGColorArray
+        gradientLayer.colors = kAColorSchemeBackgroundGradientCGColorArray
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
         
@@ -70,7 +70,8 @@ class QuestionsViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = questionTableView.dequeueReusableCellWithIdentifier(LeftSpeechBubbleTableViewCell.identifier(), forIndexPath: indexPath) as! LeftSpeechBubbleTableViewCell
-        cell.configureWithColor(kAnswerLeftSpeechBubbleColor, textColor: kAnswerLeftTextColor, text: self.questions[indexPath.row]["questionString"] as! String, cornerRadius: kSpeechBubbleCornerRadius)
+        cell.configureWithColorScheme(ColorScheme.A, text: self.questions[indexPath.row]["questionString"] as! String)
+
         return cell
     }
     
