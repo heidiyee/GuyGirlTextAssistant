@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30CE2BA91BFE422C000BE8F0 /* StoredAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CE2BA81BFE422C000BE8F0 /* StoredAnswers.swift */; };
 		965433511BFA8E8B00F1E04F /* PersonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965433501BFA8E8B00F1E04F /* PersonCollectionViewCell.swift */; };
 		96C7913C1BFBBE0200C119F3 /* RightSpeechBubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C7913B1BFBBE0200C119F3 /* RightSpeechBubbleTableViewCell.swift */; };
 		96ED3A251BFCE89B00199B7C /* LeftSpeechBubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED3A241BFCE89B00199B7C /* LeftSpeechBubbleTableViewCell.swift */; };
@@ -44,15 +45,16 @@
 		B7E4CB431BFD244B00A3E9CA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E4CB421BFD244B00A3E9CA /* Constants.swift */; };
 		B7E4CB451BFD24A600A3E9CA /* ParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E4CB441BFD24A600A3E9CA /* ParseService.swift */; };
 		B7E4CB471BFD24B100A3E9CA /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E4CB461BFD24B100A3E9CA /* QuestionTableViewCell.swift */; };
-		BF6C4B051BFD36D000A9BAC6 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C4B021BFD36D000A9BAC6 /* Response.swift */; settings = {ASSET_TAGS = (); }; };
-		BF6C4B061BFD36D000A9BAC6 /* ChatbotAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C4B031BFD36D000A9BAC6 /* ChatbotAPIService.swift */; settings = {ASSET_TAGS = (); }; };
-		BF6C4B071BFD36D000A9BAC6 /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C4B041BFD36D000A9BAC6 /* ApiConstants.swift */; settings = {ASSET_TAGS = (); }; };
+		BF6C4B051BFD36D000A9BAC6 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C4B021BFD36D000A9BAC6 /* Response.swift */; };
+		BF6C4B061BFD36D000A9BAC6 /* ChatbotAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C4B031BFD36D000A9BAC6 /* ChatbotAPIService.swift */; };
+		BF6C4B071BFD36D000A9BAC6 /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C4B041BFD36D000A9BAC6 /* ApiConstants.swift */; };
 		BFE471B01BFBEC58004C98A5 /* AnswerRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE471AF1BFBEC58004C98A5 /* AnswerRetriever.swift */; };
 		BFE471B21BFBEC63004C98A5 /* KeyWordFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE471B11BFBEC63004C98A5 /* KeyWordFinder.swift */; };
 		BFE471B41BFBEC6F004C98A5 /* Patterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE471B31BFBEC6F004C98A5 /* Patterns.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30CE2BA81BFE422C000BE8F0 /* StoredAnswers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoredAnswers.swift; sourceTree = "<group>"; };
 		965433501BFA8E8B00F1E04F /* PersonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonCollectionViewCell.swift; sourceTree = "<group>"; };
 		96C7913B1BFBBE0200C119F3 /* RightSpeechBubbleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightSpeechBubbleTableViewCell.swift; sourceTree = "<group>"; };
 		96ED3A241BFCE89B00199B7C /* LeftSpeechBubbleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSpeechBubbleTableViewCell.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				BFE471B31BFBEC6F004C98A5 /* Patterns.swift */,
 				BFE471B11BFBEC63004C98A5 /* KeyWordFinder.swift */,
 				BFE471AF1BFBEC58004C98A5 /* AnswerRetriever.swift */,
+				30CE2BA81BFE422C000BE8F0 /* StoredAnswers.swift */,
 			);
 			name = LocalAnswerGeneration;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				B78EA15D1BFA57F100BDC4D6 /* MainViewController.swift in Sources */,
 				96ED3A291BFD130A00199B7C /* QuestionsViewController.swift in Sources */,
 				B78EA15B1BFA57F100BDC4D6 /* AppDelegate.swift in Sources */,
+				30CE2BA91BFE422C000BE8F0 /* StoredAnswers.swift in Sources */,
 				B7E4CB041BFA886E00A3E9CA /* SettingsViewController.swift in Sources */,
 				96ED3A331BFD2F3A00199B7C /* AnswererViewController.swift in Sources */,
 				96ED3A2F1BFD25D400199B7C /* SpeechBubbleTableViewCellAnimator.swift in Sources */,

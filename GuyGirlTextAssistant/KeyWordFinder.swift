@@ -50,8 +50,10 @@ class KeyWordFinder {
         var result = [String]()
         let prefixMatches = [String]()
         let subjectMatches = [String]()
-        let activityMatches = [String]()
+        let verbsMatches = [String]()
         let greetingMatches = [String]()
+		let descriptionMatches = [String]()
+		let placeMatches = [String]()
         if let prefixMatches = listAllMatches(prefixes, originalString: inString) {
             result += prefixMatches
             print(result)
@@ -59,13 +61,21 @@ class KeyWordFinder {
         if let subjectMatches = listAllMatches(subjects, originalString: inString) {
             result += subjectMatches
         }
-        if let activityMatches = listAllMatches(activities, originalString: inString) {
+        if let activityMatches = listAllMatches(verbs, originalString: inString) {
             result += activityMatches
         }
         
         if let greetingMatches = listAllMatches(greetings, originalString: inString) {
             result += greetingMatches
         }
+		if let descriptionMatches = listAllMatches(descriptions, originalString: inString) {
+			result += descriptionMatches
+		}
+		if let placeMatches = listAllMatches(places, originalString: inString) {
+			result += placeMatches
+		}
+		print("The searchForAllPatterns found the following keywords: \(result)")
+
         return result
     }
 }

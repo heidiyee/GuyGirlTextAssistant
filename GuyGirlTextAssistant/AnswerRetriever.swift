@@ -13,7 +13,7 @@ class AnswerRetriever {
     class func answersforText(keywordMatches: [String]?, answersToChoose: [AnswersWithTag]) -> [String] {
         let cannedAnswers = AnswersWithTag.cannedAnswers
         
-        for answer in taggedAnswers {
+        for answer in StoredAnswers.taggedAnswers {
         
         if let keywordMatches = keywordMatches {
             if keywordMatches.contains(answer.tag) || keywordMatches.contains(answer.tagTwo) {
@@ -52,5 +52,4 @@ var goodbye = AnswersWithTag(tag: "do", tagTwo: "you", suggestedAnswers: ["You'r
 
 
 
-var taggedAnswers = [greeting, invitation, goodbye]
 
