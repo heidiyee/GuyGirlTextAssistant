@@ -262,6 +262,7 @@
 				BFE471B31BFBEC6F004C98A5 /* Patterns.swift */,
 				BFE471B11BFBEC63004C98A5 /* KeyWordFinder.swift */,
 				BFE471AF1BFBEC58004C98A5 /* AnswerRetriever.swift */,
+				30CE2BA81BFE422C000BE8F0 /* StoredAnswers.swift */,
 			);
 			name = LocalAnswerGeneration;
 			sourceTree = "<group>";
@@ -343,6 +344,7 @@
 				B78EA15D1BFA57F100BDC4D6 /* MainViewController.swift in Sources */,
 				96ED3A291BFD130A00199B7C /* QuestionsViewController.swift in Sources */,
 				B78EA15B1BFA57F100BDC4D6 /* AppDelegate.swift in Sources */,
+				30CE2BA91BFE422C000BE8F0 /* StoredAnswers.swift in Sources */,
 				B7E4CB041BFA886E00A3E9CA /* SettingsViewController.swift in Sources */,
 				96ED3A331BFD2F3A00199B7C /* AnswererViewController.swift in Sources */,
 				96ED3A2F1BFD25D400199B7C /* SpeechBubbleTableViewCellAnimator.swift in Sources */,
