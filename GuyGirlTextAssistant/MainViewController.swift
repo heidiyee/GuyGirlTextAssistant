@@ -11,9 +11,7 @@ import Parse
 
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIViewControllerTransitioningDelegate {
 
-    var answers = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Donec a diam lectus.", "Sed sit amet ipsum mauris.", "Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.", "Donec a diam lectus.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Donec a diam lectus.", "Sed sit amet ipsum mauris.", "Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.", "Donec a diam lectus."]// [String]()
-    
-    var chatbotAnswer:Response? {
+    var answers = [String]() {
         didSet {
             self.answersTableView.reloadData()
         }
@@ -23,11 +21,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var chatbotAnswer:Response? 
     
-    let cornerRadius: CGFloat = 18
-    
     @IBOutlet weak var phraseTextField: UITextField!
     @IBOutlet weak var answersTableView: UITableView!
     @IBOutlet weak var phraseElementsContainer: UIView!
+    @IBOutlet weak var instructionMessageLabel: UILabel!
     
     class func identifier() -> String {
         return "MainViewController"
@@ -42,7 +39,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.answersTableView.rowHeight = UITableViewAutomaticDimension
         
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = kQuestionBackgroundCGColorGradientArray
+        gradientLayer.colors = kQuestionBackgroundGradientCGColorArray
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
         
@@ -50,19 +47,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.answersTableView.registerNib(UINib(nibName: RightSpeechBubbleTableViewCell.identifier(), bundle: nil), forCellReuseIdentifier: RightSpeechBubbleTableViewCell.identifier())
         self.answersTableView.registerNib(UINib(nibName: StatusTableViewCell.identifier(), bundle: nil), forCellReuseIdentifier: StatusTableViewCell.identifier())
 
-        
-//        self.phraseElementsContainer.backgroundColor = UIColor.clearColor()
-        
         self.phraseElementsContainer.backgroundColor = UIColor.clearColor()
 
 //        let lightBlurView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Light))
 //        lightBlurView.frame = self.phraseElementsContainer.bounds
 //        self.phraseElementsContainer.backgroundColor = UIColor.clearColor()
 //        self.phraseElementsContainer.insertSubview(lightBlurView, atIndex: 0)
-        // OR
-//        self.phraseElementsContainer.backgroundColor = UIColor.whiteColor()
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -84,7 +74,17 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return CustomTransition(duration: 2.0)
     }
     
+    func fadeOutInstructionMessage() {
+        UIView.animateWithDuration(1.0) { () -> Void in
+            self.instructionMessageLabel.alpha = 0
+        }
+    }
+    
     // MARK: Text field actions
+    
+    @IBAction func textFieldEditingDidBegin(sender: UITextField) {
+        self.fadeOutInstructionMessage()
+    }
     
     @IBAction func textFieldDidEndOnExit(textField: UITextField) {
         if let phraseText = textField.text {
@@ -124,22 +124,22 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         SpeechBubbleTableViewCellAnimator.animate(cell)
         cell.backgroundColor = UIColor.clearColor()
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = self.answersTableView.dequeueReusableCellWithIdentifier(LeftSpeechBubbleTableViewCell.identifier()) as! LeftSpeechBubbleTableViewCell
-            cell.configureWithColor(UIColor(white: 0.85, alpha: 1), text: answers[indexPath.row], cornerRadius: kSpeechBubbleCornerRadius)
-            return cell
-        }
-        if indexPath.row % 2 == 0 {
-            let cell = self.answersTableView.dequeueReusableCellWithIdentifier(StatusTableViewCell.identifier()) as! StatusTableViewCell
-                cell.statusLabel.text = "Status Text FTW!"
+            cell.configureWithColor(kQuestionLeftSpeechBubbleColor, textColor: kQuestionLeftTextColor, text: answers[indexPath.row], cornerRadius: kSpeechBubbleCornerRadius)
             return cell
         }
         let cell = self.answersTableView.dequeueReusableCellWithIdentifier(RightSpeechBubbleTableViewCell.identifier()) as! RightSpeechBubbleTableViewCell
-        cell.configureWithColor(UIColor(white: 0.5, alpha: 1), text: answers[indexPath.row], cornerRadius: kSpeechBubbleCornerRadius)
+        cell.configureWithColor(kQuestionRightSpeechBubbleColor, textColor: kQuestionRightTextColor, text: answers[indexPath.row], cornerRadius: kSpeechBubbleCornerRadius)
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        UIPasteboard.generalPasteboard().string = answers[indexPath.row]
     }
 }
 

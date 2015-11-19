@@ -36,16 +36,14 @@ class AnswererViewController: UIViewController, UITableViewDataSource, UITableVi
         self.answersTableView.rowHeight = UITableViewAutomaticDimension
         
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor(white: 0.9, alpha: 1.0).CGColor, UIColor.whiteColor().CGColor]
-        //        gradientLayer.colors = [UIColor(white: 0.3, alpha: 1.0).CGColor, UIColor(white: 0.2, alpha: 1.0).CGColor]
+        gradientLayer.colors = kAnswerBackgroundGradientCGColorArray
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
         
         self.answersTableView.registerNib(UINib(nibName: LeftSpeechBubbleTableViewCell.identifier(), bundle: nil), forCellReuseIdentifier: LeftSpeechBubbleTableViewCell.identifier())
         self.answersTableView.registerNib(UINib(nibName: RightSpeechBubbleTableViewCell.identifier(), bundle: nil), forCellReuseIdentifier: RightSpeechBubbleTableViewCell.identifier())
         
-        self.phraseElementsContainer.backgroundColor = UIColor.clearColor()
-        self.phraseElementsContainer.backgroundColor = UIColor.whiteColor()
+        self.phraseElementsContainer.backgroundColor = kAnswerBackgroundGradientBottomColor
         getAnswers()
     }
     
@@ -95,16 +93,17 @@ class AnswererViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         SpeechBubbleTableViewCellAnimator.animate(cell)
         cell.backgroundColor = UIColor.clearColor()
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = self.answersTableView.dequeueReusableCellWithIdentifier(LeftSpeechBubbleTableViewCell.identifier()) as! LeftSpeechBubbleTableViewCell
-            cell.configureWithColor(UIColor(white: 0.85, alpha: 1), text: question["questionString"] as! String, cornerRadius: kSpeechBubbleCornerRadius)
+            cell.configureWithColor(kAnswerLeftSpeechBubbleColor, textColor: kAnswerLeftTextColor, text: question["questionString"] as! String, cornerRadius: kSpeechBubbleCornerRadius)
             return cell
         }
         let cell = self.answersTableView.dequeueReusableCellWithIdentifier(RightSpeechBubbleTableViewCell.identifier()) as! RightSpeechBubbleTableViewCell
-        cell.configureWithColor(UIColor(white: 0.5, alpha: 1), text: answers[indexPath.row - 1], cornerRadius: kSpeechBubbleCornerRadius)
+        cell.configureWithColor(kAnswerRightSpeechBubbleColor, textColor: kAnswerRightTextColor, text: answers[indexPath.row - 1], cornerRadius: kSpeechBubbleCornerRadius)
         return cell
     }
 }

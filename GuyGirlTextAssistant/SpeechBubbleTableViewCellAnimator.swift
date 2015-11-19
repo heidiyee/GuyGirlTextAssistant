@@ -15,8 +15,8 @@ class SpeechBubbleTableViewCellAnimator {
     
     class func animate(cell: UITableViewCell) {
         let view = cell.contentView
-        view.layer.opacity = 0.1
-        UIView.animateWithDuration(1.4) { () -> Void in
+        view.layer.opacity = 0
+        UIView.animateWithDuration(0.5) { () -> Void in
             view.layer.opacity = 1
         }
     }

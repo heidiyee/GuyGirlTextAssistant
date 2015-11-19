@@ -17,7 +17,7 @@
 		96ED3A2B1BFD148200199B7C /* LeftSpeechBubbleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96ED3A2A1BFD148200199B7C /* LeftSpeechBubbleTableViewCell.xib */; };
 		96ED3A2D1BFD149100199B7C /* RightSpeechBubbleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96ED3A2C1BFD149100199B7C /* RightSpeechBubbleTableViewCell.xib */; };
 		96ED3A2F1BFD25D400199B7C /* SpeechBubbleTableViewCellAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED3A2E1BFD25D400199B7C /* SpeechBubbleTableViewCellAnimator.swift */; };
-		96ED3A311BFD2CE400199B7C /* UIColor Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED3A301BFD2CE400199B7C /* UIColor Extensions.swift */; };
+		96ED3A311BFD2CE400199B7C /* UIColor Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED3A301BFD2CE400199B7C /* UIColor Constants.swift */; };
 		96ED3A331BFD2F3A00199B7C /* AnswererViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED3A321BFD2F3A00199B7C /* AnswererViewController.swift */; };
 		B78EA15B1BFA57F100BDC4D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78EA15A1BFA57F100BDC4D6 /* AppDelegate.swift */; };
 		B78EA15D1BFA57F100BDC4D6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78EA15C1BFA57F100BDC4D6 /* MainViewController.swift */; };
@@ -65,7 +65,7 @@
 		96ED3A2A1BFD148200199B7C /* LeftSpeechBubbleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftSpeechBubbleTableViewCell.xib; sourceTree = "<group>"; };
 		96ED3A2C1BFD149100199B7C /* RightSpeechBubbleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RightSpeechBubbleTableViewCell.xib; sourceTree = "<group>"; };
 		96ED3A2E1BFD25D400199B7C /* SpeechBubbleTableViewCellAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechBubbleTableViewCellAnimator.swift; sourceTree = "<group>"; };
-		96ED3A301BFD2CE400199B7C /* UIColor Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor Extensions.swift"; sourceTree = "<group>"; };
+		96ED3A301BFD2CE400199B7C /* UIColor Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor Constants.swift"; sourceTree = "<group>"; };
 		96ED3A321BFD2F3A00199B7C /* AnswererViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswererViewController.swift; sourceTree = "<group>"; };
 		B78EA1571BFA57F100BDC4D6 /* GuyGirlTextAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuyGirlTextAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B78EA15A1BFA57F100BDC4D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				96ED3A2E1BFD25D400199B7C /* SpeechBubbleTableViewCellAnimator.swift */,
-				96ED3A301BFD2CE400199B7C /* UIColor Extensions.swift */,
+				96ED3A301BFD2CE400199B7C /* UIColor Constants.swift */,
 			);
 			name = "Misc UI";
 			sourceTree = "<group>";
@@ -352,7 +352,7 @@
 				BFE471B21BFBEC63004C98A5 /* KeyWordFinder.swift in Sources */,
 				BF6C4B051BFD36D000A9BAC6 /* Response.swift in Sources */,
 				B7E4CB431BFD244B00A3E9CA /* Constants.swift in Sources */,
-				96ED3A311BFD2CE400199B7C /* UIColor Extensions.swift in Sources */,
+				96ED3A311BFD2CE400199B7C /* UIColor Constants.swift in Sources */,
 				BFE471B41BFBEC6F004C98A5 /* Patterns.swift in Sources */,
 				96C7913C1BFBBE0200C119F3 /* RightSpeechBubbleTableViewCell.swift in Sources */,
 				96ED3A251BFCE89B00199B7C /* LeftSpeechBubbleTableViewCell.swift in Sources */,
