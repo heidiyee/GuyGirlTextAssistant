@@ -63,7 +63,7 @@ class QuestionsViewController: UIViewController, UITableViewDataSource, UITableV
     // MARK: Table view data source
 
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        SpeechBubbleTableViewCellAnimator.animateCell(cell, withDelayMultiplier: indexPath.row)
+        SpeechBubbleTableViewCellAnimator.animateCell(cell, withDelayConstant: 0.005, multiplier: indexPath.row)
         cell.backgroundColor = UIColor.clearColor()
         cell.selectionStyle = UITableViewCellSelectionStyle.None
     }

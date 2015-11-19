@@ -173,7 +173,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // MARK: Table view delegate
 
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        SpeechBubbleTableViewCellAnimator.animateCell(cell, withDelayMultiplier: indexPath.row)
+        SpeechBubbleTableViewCellAnimator.animateCell(cell, withDelayConstant: 0.1, multiplier: indexPath.row)
         cell.backgroundColor = UIColor.clearColor()
         cell.selectionStyle = UITableViewCellSelectionStyle.None
     }

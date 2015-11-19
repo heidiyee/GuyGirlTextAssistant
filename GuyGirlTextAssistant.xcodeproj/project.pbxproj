@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30CE2BA91BFE422C000BE8F0 /* StoredAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CE2BA81BFE422C000BE8F0 /* StoredAnswers.swift */; };
 		963DAADD1BFD5F290008AD7D /* StatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963DAADC1BFD5F290008AD7D /* StatusTableViewCell.xib */; };
 		963DAAE11BFD61040008AD7D /* StatusTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963DAAE01BFD61040008AD7D /* StatusTextTableViewCell.swift */; };
 		965433511BFA8E8B00F1E04F /* PersonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965433501BFA8E8B00F1E04F /* PersonCollectionViewCell.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30CE2BA81BFE422C000BE8F0 /* StoredAnswers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoredAnswers.swift; sourceTree = "<group>"; };
 		963DAADC1BFD5F290008AD7D /* StatusTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusTableViewCell.xib; sourceTree = "<group>"; };
 		963DAAE01BFD61040008AD7D /* StatusTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusTextTableViewCell.swift; path = ../StatusTextTableViewCell.swift; sourceTree = "<group>"; };
 		965433501BFA8E8B00F1E04F /* PersonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonCollectionViewCell.swift; sourceTree = "<group>"; };
