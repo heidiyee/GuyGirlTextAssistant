@@ -62,7 +62,17 @@ class AnswererViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: Text field actions
     
     @IBAction func textFieldDidEndOnExit(textField: UITextField) {
+        guard let parseObjectId =  question?.objectId else {return}
+        print(parseObjectId)
         if let phraseText = textField.text {
+            ParseService.updateParseObjectAnswer(parseObjectId, answer: phraseText, completion: { (success, error) -> Void in
+                if let error = error {
+                    print("error here \(error.description)")
+                    return
+                }
+                print("Able to append answer to array")
+                
+            })
             self.answers.append(phraseText)
             self.answersTableView.reloadData()
             //            let matchesInTextMessage = KeyWordFinder.searchForAllPatterns(phraseText)

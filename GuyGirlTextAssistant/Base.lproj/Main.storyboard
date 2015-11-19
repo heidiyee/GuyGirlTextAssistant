@@ -126,8 +126,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                         <connections>
-                                            <action selector="textFieldDidEndOnExit:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="dHy-UV-hag"/>
-                                            <action selector="textFieldEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="PPr-Fb-A5R"/>
+                                            <action selector="textFieldDidEndOnExit:" destination="fMc-Ab-akY" eventType="editingDidEndOnExit" id="2qD-PD-5ke"/>
                                         </connections>
                                     </textField>
                                 </subviews>
@@ -169,7 +168,7 @@
                     <connections>
                         <outlet property="answersTableView" destination="ho0-YO-Fhs" id="bhH-CG-Iev"/>
                         <outlet property="phraseElementsContainer" destination="DUL-U8-vGf" id="mzH-qJ-39N"/>
-                        <outlet property="phraseTextField" destination="F3w-JA-262" id="AM7-XK-gcp"/>
+                        <outlet property="phraseTextField" destination="F3w-JA-262" id="aWQ-y3-LiG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rWz-bd-cjs" userLabel="First Responder" sceneMemberID="firstResponder"/>

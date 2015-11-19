@@ -84,6 +84,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBAction func textFieldDidEndOnExit(textField: UITextField) {
         if let phraseText = textField.text {
+            ParseService.uploadObjectToQuestionClass(phraseText, completion: { (success, error) -> Void in
+                if let error = error {
+                    print(error.description)
+                }
+                print("added to parse")
+            })
             //This function needs to get the text message from user as parameter
             ChatbotAPIService.update(phraseText) { (response) -> () in
                 self.chatbotAnswer = response
