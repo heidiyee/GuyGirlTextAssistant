@@ -130,8 +130,8 @@ class AnswererViewController: UIViewController, UITableViewDataSource, UITableVi
                     print("error here \(error.description)")
                     return
                 }
-                self.getAnswers()
-                
+                self.answers.append(phraseText)
+//                self.getAnswers()
             })
             //self.answers.append(phraseText)
             //self.answersTableView.reloadData()
