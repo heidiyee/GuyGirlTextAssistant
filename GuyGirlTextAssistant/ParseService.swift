@@ -26,6 +26,7 @@ class ParseService {
     class func getParseData(className: String, completion: (array: [PFObject]?, error: NSError?) -> Void) {
         
         let parseQuery = PFQuery(className: className)
+        parseQuery.orderByDescending("createdAt")
         parseQuery.findObjectsInBackgroundWithBlock { (parseObjects, error) -> Void in
             if let parseObjects = parseObjects {
                 completion(array: parseObjects,error: nil)
@@ -45,6 +46,22 @@ class ParseService {
                 object.addObject(answer, forKey: "answers")
                 object["hasAnswer"] = true
                 object.incrementKey("answerCount", byAmount: 1)
+                object.saveInBackground()
+                completion(success: true, error: nil)
+            }
+        }
+    }
+    
+    class func updateParseObjectRobotAnswer(objectId: String, answer: [String], completion: (success: Bool, error: NSError?) -> Void) {
+        let query = PFQuery(className: kClassName)
+        query.getObjectInBackgroundWithId(objectId) { (object: PFObject?, error: NSError?) -> Void in
+            if let error = error {
+                print(error.description)
+                completion(success: false, error: error)
+            } else if let object = object {
+                print("found object")
+                object.addObjectsFromArray(answer, forKey: "robotAnswers")
+                //object.incrementKey("answerCount", byAmount: 1)
                 object.saveInBackground()
                 completion(success: true, error: nil)
             }
