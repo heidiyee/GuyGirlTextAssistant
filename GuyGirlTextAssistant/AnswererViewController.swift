@@ -123,7 +123,7 @@ class AnswererViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBAction func textFieldDidEndOnExit(textField: UITextField) {
         guard let question = self.question else {return}
         guard let parseObjectId = question.objectId else {return}
-        print(parseObjectId)
+        //print(parseObjectId)
         if let phraseText = textField.text {
             ParseService.updateParseObjectAnswer(parseObjectId, answer: phraseText, completion: { (success, error) -> Void in
                 if let error = error {

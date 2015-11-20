@@ -28,9 +28,13 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    var pfobjectId: String?
+    var indexPathsToAnimate = [NSIndexPath]()
     
-    var chatbotAnswer:Response? 
+    //var question: String?
+    var pfobjectId: String?
+    var chatbotAnswer:Response?
+    
+    var didLoadBefore = 0
     
     @IBOutlet weak var phraseTextField: UITextField!
     @IBOutlet weak var answersTableView: UITableView!
@@ -62,11 +66,20 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.answersTableView.registerNib(UINib(nibName: StatusTableViewCell.identifier(), bundle: nil), forCellReuseIdentifier: StatusTableViewCell.identifier())
 
         self.phraseElementsContainer.backgroundColor = UIColor.clearColor()
+
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController!.tabBar.barStyle = UIBarStyle.Default
+        if self.didLoadBefore > 0 {
+            self.showUserAnswers()
+        }
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.didLoadBefore++
     }
     
     override func didReceiveMemoryWarning() {
@@ -159,6 +172,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 			newArray += AnswerRetriever.answersforText(matchesInTextMessage, answersToChoose: StoredAnswers.taggedAnswers)
 			self.answers += newArray
             self.saveRobotAnswers(newArray)
+            self.showUserAnswers()
 
         }
 		
@@ -176,12 +190,30 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
                             return
                         }
                     })
-                    let userAnswersCount = object["answerCount"] as! Int
-                    if userAnswersCount > 0 {
-                        //dosomething
-                    }
+//                    let userAnswersCount = object["answerCount"] as! Int
+//                    print(userAnswersCount)
+//                    if userAnswersCount > 0 {
+//                        let userAnswerArray = object["answers"] as! [String]
+//                        self.answers += userAnswerArray
+//                    }
                 }
 
+            }
+        }
+    }
+    
+    func showUserAnswers() {
+        ParseService.getParseData(kClassName) { (array, error) -> Void in
+            if let array = array {
+                let object = array[0]
+                if let userAnswersCount = object["answerCount"] as? Int {
+                    print(userAnswersCount)
+                    if userAnswersCount > 0 {
+                        if let userAnswerArray = object["answers"] as? [String] {
+                            self.answers += userAnswerArray
+                        }
+                    }
+                }
             }
         }
     }
@@ -218,5 +250,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         UIPasteboard.generalPasteboard().string = answers[indexPath.row]
     }
+    
 }
 
