@@ -46,7 +46,7 @@ var girlAtClub = AnswersWithTag(tag: "bar", tagTwo: "club",
 	
 	suggestedAnswers: ["What girl?", "She's an old girlfriend. She's super hot right?", "oh no one", "A crazy ex of mine", "My friend's girlfriend"])
 
-var gettingSerious = AnswersWithTag(tag: "marriage", tagTwo: "love",
+var gettingSerious = AnswersWithTag(tag: "marriage", tagTwo: "date",
 	
 	suggestedAnswers: ["I can see that happening one day", "I'm not sure...", "That's a weird question to ask over text... :flushed:", "I don't see my self getting married"])
 
@@ -74,7 +74,7 @@ var datingOrMore = AnswersWithTag(tag: "couple", tagTwo: "exclusive",
 	
 	suggestedAnswers: ["I'm not seeing anyone else", "Is that what you want?", "I'm dating around still", "idk"])
 
-var loveMe = AnswersWithTag(tag: "like", tagTwo: "love",
+var loveMe = AnswersWithTag(tag: "like", tagTwo: "marriage",
 	
 	suggestedAnswers: ["Yes, I do", "I think we should talk in person about love", "maybe?", "idk"])
 
