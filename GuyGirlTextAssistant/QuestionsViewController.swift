@@ -40,7 +40,7 @@ class QuestionsViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewWillAppear(false)
         getParseObjects()
     }
     

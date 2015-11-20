@@ -17,7 +17,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    //var question: String?
+    var pfobjectId: String?
     
     var chatbotAnswer:Response? 
     
@@ -126,8 +126,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 if let error = error {
                     print(error.description)
                 }
-                self.answers.append(phraseText)
-                self.getAnswer()
+                    self.answers.append(phraseText)
+                    self.getAnswer()
             })
         }
     }
@@ -147,11 +147,32 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 			let matchesInTextMessage = KeyWordFinder.searchForAllPatterns(text)
 			newArray += AnswerRetriever.answersforText(matchesInTextMessage, answersToChoose: StoredAnswers.taggedAnswers)
 			self.answers += newArray
+            self.saveRobotAnswers(newArray)
 
         }
 		
 		//self.answersTableView.reloadData()
     }
+    
+    func saveRobotAnswers(stringArray: [String]) {
+        ParseService.getParseData(kClassName) { (array, error) -> Void in
+            if let array = array {
+                let object = array[0]
+                if let id = object.objectId {
+                    ParseService.updateParseObjectRobotAnswer(id, answer: stringArray, completion: { (success, error) -> Void in
+                        if let error = error {
+                            print(error.description)
+                            return
+                        }
+                    })
+                    let userAnswers = object["answers"]
+                }
+
+            }
+        }
+    }
+    
+
     
     // MARK: Table view data source
 
