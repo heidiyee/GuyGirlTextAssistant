@@ -13,9 +13,22 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     var answers = [String]() {
         didSet {
+            let oldCount = oldValue.count
+            let newCount = answers.count
+            if oldCount < newCount {
+                var newIndexPaths = [NSIndexPath]()
+                for i in oldCount...newCount {
+                    newIndexPaths.append(NSIndexPath(forRow: i, inSection: 0))
+                }
+                self.indexPathsToAnimate = newIndexPaths
+            } else {
+                self.indexPathsToAnimate = [NSIndexPath]()
+            }
             self.answersTableView.reloadData()
         }
     }
+    
+    var indexPathsToAnimate = [NSIndexPath]()
     
     //var question: String?
     
@@ -51,11 +64,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.answersTableView.registerNib(UINib(nibName: StatusTableViewCell.identifier(), bundle: nil), forCellReuseIdentifier: StatusTableViewCell.identifier())
 
         self.phraseElementsContainer.backgroundColor = UIColor.clearColor()
-
-//        let lightBlurView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Light))
-//        lightBlurView.frame = self.phraseElementsContainer.bounds
-//        self.phraseElementsContainer.backgroundColor = UIColor.clearColor()
-//        self.phraseElementsContainer.insertSubview(lightBlurView, atIndex: 0)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController!.tabBar.barStyle = UIBarStyle.Default
     }
     
     override func didReceiveMemoryWarning() {
@@ -173,7 +186,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // MARK: Table view delegate
 
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        SpeechBubbleTableViewCellAnimator.animateCell(cell, withDelayConstant: 0.1, multiplier: indexPath.row)
+        if self.indexPathsToAnimate.contains(indexPath) {
+            SpeechBubbleTableViewCellAnimator.animateCell(cell, withDelayConstant: 0.1, multiplier: indexPath.row)
+        }
         cell.backgroundColor = UIColor.clearColor()
         cell.selectionStyle = UITableViewCellSelectionStyle.None
     }

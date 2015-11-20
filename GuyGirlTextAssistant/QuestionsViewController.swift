@@ -15,9 +15,22 @@ class QuestionsViewController: UIViewController, UITableViewDataSource, UITableV
     
     var questions = [PFObject]() {
         didSet {
+            let oldCount = oldValue.count
+            let newCount = questions.count
+            if oldCount < newCount {
+                var newIndexPaths = [NSIndexPath]()
+                for i in oldCount...newCount {
+                    newIndexPaths.append(NSIndexPath(forRow: i, inSection: 0))
+                }
+                self.indexPathsToAnimate = newIndexPaths
+            } else {
+                self.indexPathsToAnimate = [NSIndexPath]()
+            }
             self.questionTableView.reloadData()
         }
     }
+    
+    var indexPathsToAnimate = [NSIndexPath]()
     
     class func identifier() -> String {
         return "QuestionsViewController"
@@ -42,6 +55,7 @@ class QuestionsViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         getParseObjects()
+        self.tabBarController!.tabBar.barStyle = UIBarStyle.Black
     }
     
     func getParseObjects() {
@@ -63,7 +77,9 @@ class QuestionsViewController: UIViewController, UITableViewDataSource, UITableV
     // MARK: Table view data source
 
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        SpeechBubbleTableViewCellAnimator.animateCell(cell, withDelayConstant: 0.005, multiplier: indexPath.row)
+        if self.indexPathsToAnimate.contains(indexPath) {
+            SpeechBubbleTableViewCellAnimator.animateCell(cell, withDelayConstant: 0.005, multiplier: indexPath.row)
+        }
         cell.backgroundColor = UIColor.clearColor()
         cell.selectionStyle = UITableViewCellSelectionStyle.None
     }
