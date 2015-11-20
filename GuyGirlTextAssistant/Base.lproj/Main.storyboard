@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TJS-8S-TJh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TJS-8S-TJh">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -9,7 +9,7 @@
         <!--Ask-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="GuyGirlTextAssistant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="SayWhat_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -61,125 +61,6 @@
                                     <constraint firstAttribute="bottom" secondItem="Kye-MM-IyF" secondAttribute="bottom" constant="10" id="Ub3-m7-Trn"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="itn-xx-k1c">
-                                <rect key="frame" x="0.0" y="20" width="600" height="481"/>
-                                <animations/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RightSpeechBubbleTableViewCell" rowHeight="50" id="e6Y-Zf-OLq" customClass="RightSpeechBubbleTableViewCell" customModule="GuyGirlTextAssistant" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e6Y-Zf-OLq" id="3lN-Q1-4NJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hrc-Yq-Bl7">
-                                                    <rect key="frame" x="576" y="21" width="16" height="19"/>
-                                                    <animations/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Jv-wY-jKD">
-                                                    <rect key="frame" x="560" y="4" width="32" height="36"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryc-yP-XXU">
-                                                            <rect key="frame" x="12" y="8" width="9" height="20"/>
-                                                            <animations/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <animations/>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstItem="Ryc-yP-XXU" firstAttribute="leading" secondItem="4Jv-wY-jKD" secondAttribute="leading" constant="12" id="IR2-jr-5EG"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Ryc-yP-XXU" secondAttribute="bottom" constant="8" id="dCq-i4-0gD"/>
-                                                        <constraint firstItem="Ryc-yP-XXU" firstAttribute="top" secondItem="4Jv-wY-jKD" secondAttribute="top" constant="8" id="dv4-Dq-kf8"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Ryc-yP-XXU" secondAttribute="trailing" constant="12" id="mJE-Wk-mY5"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstItem="Hrc-Yq-Bl7" firstAttribute="bottom" secondItem="4Jv-wY-jKD" secondAttribute="bottom" id="0Ez-go-PlK"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="4Jv-wY-jKD" secondAttribute="trailing" id="3Mi-u5-6T5"/>
-                                                <constraint firstItem="4Jv-wY-jKD" firstAttribute="top" secondItem="3lN-Q1-4NJ" secondAttribute="topMargin" constant="-4" id="7sm-H1-ziM"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="4Jv-wY-jKD" secondAttribute="bottom" constant="2" id="BTw-Qw-MY4"/>
-                                                <constraint firstItem="Hrc-Yq-Bl7" firstAttribute="height" secondItem="4Jv-wY-jKD" secondAttribute="height" multiplier="0.5" id="KXn-BW-xvW"/>
-                                                <constraint firstItem="Ryc-yP-XXU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3lN-Q1-4NJ" secondAttribute="leadingMargin" constant="8" id="LJ8-1p-QhC"/>
-                                                <constraint firstItem="4Jv-wY-jKD" firstAttribute="top" secondItem="3lN-Q1-4NJ" secondAttribute="topMargin" constant="-4" id="OwU-E2-A6Q"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="4Jv-wY-jKD" secondAttribute="bottom" constant="-4.5" id="RzA-5e-W99"/>
-                                                <constraint firstItem="Hrc-Yq-Bl7" firstAttribute="width" secondItem="4Jv-wY-jKD" secondAttribute="width" multiplier="0.5" id="dzG-VV-cv5"/>
-                                                <constraint firstItem="Hrc-Yq-Bl7" firstAttribute="trailing" secondItem="4Jv-wY-jKD" secondAttribute="trailing" id="eyc-g9-N83"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="7sm-H1-ziM"/>
-                                                    <exclude reference="RzA-5e-W99"/>
-                                                </mask>
-                                            </variation>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                        <connections>
-                                            <outlet property="speechBubbleView" destination="4Jv-wY-jKD" id="HA1-Aj-46e"/>
-                                            <outlet property="speechTextLabel" destination="Ryc-yP-XXU" id="3dv-Ag-AgF"/>
-                                            <outlet property="tail" destination="Hrc-Yq-Bl7" id="ukC-UL-wKU"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeftSpeechBubbleTableViewCell" rowHeight="50" id="s8I-G9-2bx" customClass="LeftSpeechBubbleTableViewCell" customModule="GuyGirlTextAssistant" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="78" width="600" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s8I-G9-2bx" id="6HN-tp-Eyf">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zZd-Of-7LK">
-                                                    <rect key="frame" x="8" y="21" width="17" height="19"/>
-                                                    <animations/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qjr-ro-iY4">
-                                                    <rect key="frame" x="8" y="4" width="33" height="36"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozN-y8-qTq">
-                                                            <rect key="frame" x="12" y="8" width="9" height="20"/>
-                                                            <animations/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <animations/>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="ozN-y8-qTq" secondAttribute="bottom" constant="8" id="NWC-o2-Vbi"/>
-                                                        <constraint firstAttribute="trailing" secondItem="ozN-y8-qTq" secondAttribute="trailing" constant="12" id="TLA-RJ-fDA"/>
-                                                        <constraint firstItem="ozN-y8-qTq" firstAttribute="top" secondItem="Qjr-ro-iY4" secondAttribute="top" constant="8" id="jg0-TZ-eV3"/>
-                                                        <constraint firstItem="ozN-y8-qTq" firstAttribute="leading" secondItem="Qjr-ro-iY4" secondAttribute="leading" constant="12" id="lr8-0s-Roi"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstItem="zZd-Of-7LK" firstAttribute="width" secondItem="Qjr-ro-iY4" secondAttribute="width" multiplier="0.5" id="9Vd-8v-Nha"/>
-                                                <constraint firstItem="zZd-Of-7LK" firstAttribute="bottom" secondItem="Qjr-ro-iY4" secondAttribute="bottom" id="Fw3-sm-M6h"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="Qjr-ro-iY4" secondAttribute="leading" id="UqV-c7-LiV"/>
-                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="ozN-y8-qTq" secondAttribute="trailing" constant="8" id="XvH-ZN-pA2"/>
-                                                <constraint firstItem="zZd-Of-7LK" firstAttribute="height" secondItem="Qjr-ro-iY4" secondAttribute="height" multiplier="0.5" id="fU2-5C-5GY"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Qjr-ro-iY4" secondAttribute="bottom" constant="-4" id="kem-Qd-4Ea"/>
-                                                <constraint firstItem="zZd-Of-7LK" firstAttribute="leading" secondItem="Qjr-ro-iY4" secondAttribute="leading" id="pMo-aa-6yu"/>
-                                                <constraint firstItem="Qjr-ro-iY4" firstAttribute="top" secondItem="6HN-tp-Eyf" secondAttribute="topMargin" constant="-4" id="uRY-KC-enj"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                        <connections>
-                                            <outlet property="speechBubbleView" destination="Qjr-ro-iY4" id="47n-x9-oMJ"/>
-                                            <outlet property="speechTextLabel" destination="ozN-y8-qTq" id="1Ep-y1-1qS"/>
-                                            <outlet property="tail" destination="zZd-Of-7LK" id="bxQ-nA-RYo"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -220,7 +101,7 @@
         <!--Questions-->
         <scene sceneID="Qnh-3b-TDK">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="k5W-17-TcQ" customClass="QuestionsViewController" customModule="GuyGirlTextAssistant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="k5W-17-TcQ" customClass="QuestionsViewController" customModule="SayWhat_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xkA-4H-Vms"/>
                         <viewControllerLayoutGuide type="bottom" id="fd6-OH-f2m"/>
@@ -257,7 +138,7 @@
         <!--Answerer View Controller-->
         <scene sceneID="46z-oF-MPN">
             <objects>
-                <viewController id="fMc-Ab-akY" customClass="AnswererViewController" customModule="GuyGirlTextAssistant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fMc-Ab-akY" customClass="AnswererViewController" customModule="SayWhat_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JiP-CZ-ZLV"/>
                         <viewControllerLayoutGuide type="bottom" id="gma-mo-Y8G"/>
@@ -329,7 +210,7 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="TJS-8S-TJh" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="fsf-rQ-dPR">
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="fsf-rQ-dPR">
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -347,9 +228,9 @@
         <scene sceneID="wDb-tq-DIO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hA9-sf-KyE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Open Questions" image="0109-bubbles" id="LiT-Qq-xLN"/>
+                    <tabBarItem key="tabBarItem" title="Open Questions" image="0109-bubbles" id="iN6-wf-iHb"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2Ln-8A-7CB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="2Ln-8A-7CB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>

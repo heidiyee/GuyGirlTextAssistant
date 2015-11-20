@@ -11,13 +11,26 @@ import Parse
 
 class AnswererViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var question: PFObject!
+    var question: PFObject?
     
     var answers = [String]() {
         didSet {
+            let oldCount = oldValue.count
+            let newCount = answers.count
+            if oldCount < newCount {
+                var newIndexPaths = [NSIndexPath]()
+                for i in oldCount...newCount {
+                    newIndexPaths.append(NSIndexPath(forRow: i, inSection: 0))
+                }
+                self.indexPathsToAnimate = newIndexPaths
+            } else {
+                self.indexPathsToAnimate = [NSIndexPath]()
+            }
             self.answersTableView.reloadData()
         }
     }
+    
+    var indexPathsToAnimate = [NSIndexPath]()
     
     @IBOutlet weak var answersTableView: UITableView!
     @IBOutlet weak var phraseTextField: UITextField!
@@ -50,14 +63,24 @@ class AnswererViewController: UIViewController, UITableViewDataSource, UITableVi
         getAnswers()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController!.tabBar.barStyle = UIBarStyle.Black
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func getAnswers() {
-        if let array = question["answers"] as? [String] {
-            self.answers = array
+        if let question = self.question {
+            if let questionString = question["questionString"] as? String {
+                self.answers = [questionString]
+            }
+            if let array = question["answers"] as? [String] {
+                self.answers.appendContentsOf(array)
+            }
         }
     }
 
@@ -98,7 +121,8 @@ class AnswererViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: Text field actions
     
     @IBAction func textFieldDidEndOnExit(textField: UITextField) {
-        guard let parseObjectId =  question.objectId else {return}
+        guard let question = self.question else {return}
+        guard let parseObjectId = question.objectId else {return}
         print(parseObjectId)
         if let phraseText = textField.text {
             ParseService.updateParseObjectAnswer(parseObjectId, answer: phraseText, completion: { (success, error) -> Void in
@@ -120,11 +144,13 @@ class AnswererViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: Table view data source
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return answers.count + 1
+        return answers.count
     }
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        SpeechBubbleTableViewCellAnimator.animateCell(cell, withDelayConstant: 0.1, multiplier: indexPath.row)
+        if self.indexPathsToAnimate.contains(indexPath) {
+            SpeechBubbleTableViewCellAnimator.animateCell(cell, withDelayConstant: 0.1, multiplier: indexPath.row)
+        }
         cell.backgroundColor = UIColor.clearColor()
         cell.selectionStyle = UITableViewCellSelectionStyle.None
     }
@@ -132,11 +158,11 @@ class AnswererViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = self.answersTableView.dequeueReusableCellWithIdentifier(LeftSpeechBubbleTableViewCell.identifier()) as! LeftSpeechBubbleTableViewCell
-            cell.configureWithColorScheme(ColorScheme.A, text: question["questionString"] as! String)
+            cell.configureWithColorScheme(ColorScheme.A, text: answers[indexPath.row])
             return cell
         }
         let cell = self.answersTableView.dequeueReusableCellWithIdentifier(RightSpeechBubbleTableViewCell.identifier()) as! RightSpeechBubbleTableViewCell
-        cell.configureWithColorScheme(ColorScheme.A, text: answers[indexPath.row - 1])
+        cell.configureWithColorScheme(ColorScheme.A, text: answers[indexPath.row])
         return cell
     }
 }
