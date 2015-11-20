@@ -131,13 +131,7 @@ class AnswererViewController: UIViewController, UITableViewDataSource, UITableVi
                     return
                 }
                 self.answers.append(phraseText)
-//                self.getAnswers()
             })
-            //self.answers.append(phraseText)
-            //self.answersTableView.reloadData()
-            //            let matchesInTextMessage = KeyWordFinder.searchForAllPatterns(phraseText)
-            //            self.answers = AnswerRetriever.answersforText(matchesInTextMessage)
-            //            self.answersTableView.reloadData()
         }
     }
     
