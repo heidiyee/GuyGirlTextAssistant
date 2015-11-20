@@ -48,12 +48,12 @@ class KeyWordFinder {
     
     class func searchForAllPatterns(inString:String) -> [String]? {
         var result = [String]()
-        let prefixMatches = [String]()
-        let subjectMatches = [String]()
-        let verbsMatches = [String]()
-        let greetingMatches = [String]()
-		let descriptionMatches = [String]()
-		let placeMatches = [String]()
+//        var prefixMatches = [String]()
+//        var subjectMatches = [String]()
+//        var verbsMatches = [String]()
+//        var greetingMatches = [String]()
+//		var descriptionMatches = [String]()
+//		var placeMatches = [String]()
         if let prefixMatches = listAllMatches(prefixes, originalString: inString) {
             result += prefixMatches
             print(result)
