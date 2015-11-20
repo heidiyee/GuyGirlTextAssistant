@@ -50,6 +50,7 @@
 		BF6C4B051BFD36D000A9BAC6 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C4B021BFD36D000A9BAC6 /* Response.swift */; };
 		BF6C4B061BFD36D000A9BAC6 /* ChatbotAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C4B031BFD36D000A9BAC6 /* ChatbotAPIService.swift */; };
 		BF6C4B071BFD36D000A9BAC6 /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C4B041BFD36D000A9BAC6 /* ApiConstants.swift */; };
+		BF6C4B491BFE970A00A9BAC6 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BF6C4B481BFE970A00A9BAC6 /* logo.png */; settings = {ASSET_TAGS = (); }; };
 		BFE471B01BFBEC58004C98A5 /* AnswerRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE471AF1BFBEC58004C98A5 /* AnswerRetriever.swift */; };
 		BFE471B21BFBEC63004C98A5 /* KeyWordFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE471B11BFBEC63004C98A5 /* KeyWordFinder.swift */; };
 		BFE471B41BFBEC6F004C98A5 /* Patterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE471B31BFBEC6F004C98A5 /* Patterns.swift */; };
@@ -101,6 +102,7 @@
 		BF6C4B021BFD36D000A9BAC6 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		BF6C4B031BFD36D000A9BAC6 /* ChatbotAPIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatbotAPIService.swift; sourceTree = "<group>"; };
 		BF6C4B041BFD36D000A9BAC6 /* ApiConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
+		BF6C4B481BFE970A00A9BAC6 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		BFE471AF1BFBEC58004C98A5 /* AnswerRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerRetriever.swift; sourceTree = "<group>"; };
 		BFE471B11BFBEC63004C98A5 /* KeyWordFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyWordFinder.swift; sourceTree = "<group>"; };
 		BFE471B31BFBEC6F004C98A5 /* Patterns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Patterns.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				96ED3A361BFD2F7B00199B7C /* Xibs */,
 				B78EA15E1BFA57F100BDC4D6 /* Main.storyboard */,
 				B78EA1611BFA57F100BDC4D6 /* Assets.xcassets */,
+				BF6C4B481BFE970A00A9BAC6 /* logo.png */,
 				B78EA1631BFA57F100BDC4D6 /* LaunchScreen.storyboard */,
 				B78EA1661BFA57F100BDC4D6 /* Info.plist */,
 			);
@@ -331,6 +334,7 @@
 				96ED3A2D1BFD149100199B7C /* RightSpeechBubbleTableViewCell.xib in Resources */,
 				B78EA1651BFA57F100BDC4D6 /* LaunchScreen.storyboard in Resources */,
 				B78EA1621BFA57F100BDC4D6 /* Assets.xcassets in Resources */,
+				BF6C4B491BFE970A00A9BAC6 /* logo.png in Resources */,
 				B78EA1601BFA57F100BDC4D6 /* Main.storyboard in Resources */,
 				963DAADD1BFD5F290008AD7D /* StatusTableViewCell.xib in Resources */,
 			);
