@@ -34,7 +34,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var pfobjectId: String?
     var chatbotAnswer:Response?
     
-    var didLoadBefore = 0
+    var userAnswers = 0
+    
+    //var viewHasLoadedbefore = 0
+    var userAnswersAfterIndex: Int = 0
     
     @IBOutlet weak var phraseTextField: UITextField!
     @IBOutlet weak var answersTableView: UITableView!
@@ -72,19 +75,16 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController!.tabBar.barStyle = UIBarStyle.Default
-        if self.didLoadBefore > 0 {
-            self.showUserAnswers()
-        }
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        self.didLoadBefore++
+        self.showUserAnswers()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -146,6 +146,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBAction func textFieldDidEndOnExit(textField: UITextField) {
         if let phraseText = textField.text {
             self.answers.removeAll()
+            //self.viewHasLoadedbefore = 0
+            self.userAnswers = 0
             ParseService.uploadObjectToQuestionClass(phraseText, completion: { (success, error) -> Void in
                 if let error = error {
                     print(error.description)
@@ -173,7 +175,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 			self.answers += newArray
             self.saveRobotAnswers(newArray)
             self.showUserAnswers()
-
+            self.userAnswersAfterIndex = self.answers.count - 1
         }
 		
 		//self.answersTableView.reloadData()
@@ -207,8 +209,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if let array = array {
                 let object = array[0]
                 if let userAnswersCount = object["answerCount"] as? Int {
-                    print(userAnswersCount)
-                    if userAnswersCount > 0 {
+                    print("useranswercount\(userAnswersCount)")
+                    if userAnswersCount > self.userAnswers {
+                        self.userAnswers = userAnswersCount
                         if let userAnswerArray = object["answers"] as? [String] {
                             self.answers += userAnswerArray
                         }
@@ -232,6 +235,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell.configureWithColorScheme(ColorScheme.Q, text: self.answers[indexPath.row])
             return cell
         }
+        if indexPath.row > self.userAnswersAfterIndex {
+            let cell = self.answersTableView.dequeueReusableCellWithIdentifier(RightSpeechBubbleTableViewCell.identifier()) as! RightSpeechBubbleTableViewCell
+            cell.configureWithColor(UIColor(white: 0.4, alpha: 1.0), textColor: kQColorSchemeRightTextColor, text: self.answers[indexPath.row], cornerRadius: kSpeechBubbleCornerRadius)
+            return cell
+        }
+        
         let cell = self.answersTableView.dequeueReusableCellWithIdentifier(RightSpeechBubbleTableViewCell.identifier()) as! RightSpeechBubbleTableViewCell
         cell.configureWithColorScheme(ColorScheme.Q, text: self.answers[indexPath.row])
         return cell

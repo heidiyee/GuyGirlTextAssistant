@@ -50,7 +50,7 @@
 		BF6C4B051BFD36D000A9BAC6 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C4B021BFD36D000A9BAC6 /* Response.swift */; };
 		BF6C4B061BFD36D000A9BAC6 /* ChatbotAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C4B031BFD36D000A9BAC6 /* ChatbotAPIService.swift */; };
 		BF6C4B071BFD36D000A9BAC6 /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C4B041BFD36D000A9BAC6 /* ApiConstants.swift */; };
-		BF6C4B491BFE970A00A9BAC6 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BF6C4B481BFE970A00A9BAC6 /* logo.png */; settings = {ASSET_TAGS = (); }; };
+		BF6C4B491BFE970A00A9BAC6 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BF6C4B481BFE970A00A9BAC6 /* logo.png */; };
 		BFE471B01BFBEC58004C98A5 /* AnswerRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE471AF1BFBEC58004C98A5 /* AnswerRetriever.swift */; };
 		BFE471B21BFBEC63004C98A5 /* KeyWordFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE471B11BFBEC63004C98A5 /* KeyWordFinder.swift */; };
 		BFE471B41BFBEC6F004C98A5 /* Patterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE471B31BFBEC6F004C98A5 /* Patterns.swift */; };
@@ -303,7 +303,7 @@
 				TargetAttributes = {
 					B78EA1561BFA57F100BDC4D6 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = C8LRG9WET8;
+						DevelopmentTeam = BA2CK77H46;
 					};
 				};
 			};
