@@ -165,7 +165,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
                             return
                         }
                     })
-                    let userAnswers = object["answers"]
+                    let userAnswersCount = object["answerCount"] as! Int
+                    if userAnswersCount > 0 {
+                        //dosomething
+                    }
                 }
 
             }
